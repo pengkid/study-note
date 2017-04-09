@@ -11,6 +11,7 @@
   * [JSON和JS对象之间的八卦](/Javascript/JSON和JS对象之间的八卦.md)
   * [AJAX](/Javascript/AJAX.md)
   * [你不知道的跨域](/Javascript/你不知道的跨域.md)
+  * [README.md](Javascript/readmemd.md)
 * [ES6](/ES6/README.md)
   * [const与let](/ES6/const与let.md)
   * [解构赋值](/ES6/解构赋值.md)
