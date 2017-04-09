@@ -1,6 +1,3 @@
-# My Awesome Book
+# First Chapter
 
-This file file serves as your book's preface, a great place to describe your book's content and ideas.
-
-i am pengkid, a handsome boy.
-
+GitBook allows you to organize your book into chapters, each chapter is stored in a separate file like this one.
