@@ -59,7 +59,7 @@ Document对象、Element对象和Text对象等的实例对象都承继于Node对
 
 ### 作为元素树的遍历
 
-当我们的关注点在文档的元素上而非它们之间的文本上时，JavaScript提供了另外一个API，它将文档看做是元素树，忽略部分文档：Text和Comment节点。
+JavaScript提供了另外一个API，它将文档看做是元素树，忽略部分文档：Text和Comment节点。
 
 	访问子元素节点：
 		ele.children（类似ele.childNodes，返回一个类数组对象，但只包含元素子节点）
@@ -76,7 +76,7 @@ Document对象、Element对象和Text对象等的实例对象都承继于Node对
 
 ## NodeList对象和HTMLCollection对象{#index3}
 
-### NodeList:
+### NodeList
 
 NodeList的实例对象是一个类数组对象，它的成员是节点对象。
 
@@ -86,7 +86,7 @@ NodeList接口实例对象提供length属性和数字索引，因此可以像数
 		
 	document.childNodes instanceof NodeList   //true
 
-### HTMLCollection：
+### HTMLCollection
 
 HTMLCollection实例对象与NodeList实例对象类似，也是节点对象的集合，一个类数组对象。
 
@@ -94,16 +94,13 @@ HTMLCollection实例对象与NodeList实例对象类似，也是节点对象的�
 
 	document.forms instanceof HTMLCollection	//true
 
-	在Document对象中，有一些快捷属性来访问元素节点比如：images、forms和links等属性指向类数组的<img>、<form>和<a>元素集合。这些属性都是返回HTMLCollection实例对象
+在Document对象中，有一些快捷属性来访问元素节点比如：images、forms和links等属性指向类数组的<img>、<form>和<a>元素集合。这些属性都是返回HTMLCollection实例对象。
 	
-	在HTML5中，加入了scripts，它是HTMLCollection类型的<script>元素的集合
-
-	Document对象还定义了三个属性，它们指代特殊的单个元素而非元素的集合
-	document.body是一个HTML文档的<body>元素，document.head是<head>元素
-	document.documentElement属性指代文档的根元素，在HTML文档中，它总是指代<html>元素
+在HTML5中，加入了scripts，它是HTMLCollection类型的<script>元素的集合。
 
 
-### HTMLCollection与NodeList的区别：
+
+### HTMLCollection与NodeList的区别
 
 二者的实例对象都是类数组对象，但是二者存在某些区别：
 
