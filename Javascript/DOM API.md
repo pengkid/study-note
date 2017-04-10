@@ -42,21 +42,26 @@ Document对象、Element对象和Text对象等的实例对象都承继于Node对
 	
 	访问父节点：
 		ele.parentNode（父节点永远是元素节点）	
+	
 	访问子节点：
 		ele.childNodes（返回一个类数组对象）
 		ele.firstChild（第一个子节点），ele.lastChild（最后子节点）
+	
 	访问兄弟节点：
 		ele.nextSibling（后一个兄弟）
 		ele.previousSibling（前一个兄弟）
+	
 	访问节点文本：
 		ele.textContent（除了返回该节点的文本内容，还会一并返回后代的所有文本）
+	
 	访问节点类型：
 		ele.nodeType（元素节点为1，属性节点为2，文本节点为3，注释节点为8，文档节点为9，文档类型节点为10）
+	
 	访问节点名称：
 		ele.nodeName（元素节点返回大写HTML，属性节点返回属性名，文本节点返回#text）
+	
 	访问节点值：
 		ele.nodeValue（只有文本节点和注释节点能返回自身文本字符串，其他节点都返回 null ）
-
 
 ### 作为元素树的遍历
 
@@ -66,11 +71,14 @@ JavaScript提供了另外一组API，它将文档看做是元素树，忽略部�
 		ele.children（类似ele.childNodes，返回一个类数组对象，但只包含元素子节点）
 		ele.firstElementChild（返回第一个元素子节点）
 		ele.lastElementChild（返回最后一个元素子节点）
+	
 	访问兄弟元素节点：
 		ele.nextElementSibling（返回后一个元素兄弟）
 		ele.previousElementSibling（返回前一个元素兄弟）
+	
 	访问定位父节点：
 		ele.offsetParent（返回离元素最近，且有定位机制的父元素）
+	
 	访问子元素节点数组长度：
 		ele.childElementCount（子元素的数量，返回的值和children.length值相等）
 
@@ -83,7 +91,7 @@ NodeList的实例对象是一个类数组对象，它的成员是节点对象。
 
 NodeList接口实例对象提供length属性和数字索引，因此可以像数组那样，使用数字索引取出每个节点。但是它本身并不是数组，不能使用pop或push之类数组特有的方法。
 	
-比如 ele.childNodes、document.querySelectorAll()返回的都是NodeList的实例对象
+比如 ele.childNodes、document.querySelectorAll()返回的都是NodeList的实例对象：
 		
 	document.childNodes instanceof NodeList   //true
 
@@ -91,11 +99,11 @@ NodeList接口实例对象提供length属性和数字索引，因此可以像数
 
 HTMLCollection实例对象与NodeList实例对象类似，也是节点对象的集合，一个类数组对象。
 
-比如 ele.children、document.forms返回的都是HMTLCollection的实例对象。
+比如 ele.children、document.forms返回的都是HMTLCollection的实例对象：
 
-	document.forms instanceof HTMLCollection	//true
+	document.forms instanceof HTMLCollection  //true
 
-在Document对象中，有一些快捷属性来访问元素节点比如：document.images、document.forms和document.links等属性指向类数组的 img、form 和 a 元素集合。这些属性都是返回HTMLCollection实例对象。
+在document对象中，有一些快捷属性来访问元素节点，比如：document.images、document.forms和document.links等属性指向类数组的 img、form 和 a 元素集合，这些属性都是返回HTMLCollection实例对象。
 	
 在HTML5中，加入了document.scripts，它是HTMLCollection类型的 script 元素的集合。
 
@@ -123,75 +131,60 @@ HTMLCollection实例对象与NodeList实例对象类似，也是节点对象的�
 	
 	* 上述属性和方法只存在于元素节点，其他类型的节点都是 undefined
 
+	ele.textContent：将指定元素的所有后代Text节点简单的串联在一起并返回
 
-	当要查询纯文本形式的元素内容或在文档中插入纯文本（不必转义HTML标记中使用的尖括号）时
-	我们使用node的textContent属性来实现：
-
-		<div id="div">abc<p>123</p>def</div>   
-		var d = document.getElementById('div');
-		d.textContent  //abc123def
-		
-	textContent属性就是将指定元素的所有后代Text节点简单的串联在一起。
-	textContent是可读写的：
-
-	d.textContext = '<span>45</span>';  //<span>45</span>
-
-	上面代码在插入文本时，会将<span>标签解释为文本，而不会当作标签处理。
-	
 	* 在IE中，使用innerText替代textContent。
 
 
 
 ## DOM节点增改删查：
-	创建（增）：
-		document.createDoucmentFragment()：创建一个文档片段节点
-		document.createComment('comment')：创建一个注释节点，参数为注释值
-		document.createElement('ele')：创建元素节点，参数为标签名
-		document.createAttribute('att')：创建属性节点，参数为属性名
-		document.createTextNode('text')：创建文本节点，参数为文本值
-		ele.cloneNode()：用来复制已存在的节点。每个节点有该方法，返回该节点的一个全新副本
-						 传递一个可选的布尔值为参数，如果参数true则同时克隆该节点的所有后代节点
-						 否则只克隆该节点，默认为false
 
+###创建节点（增）：
+	
+	document.createDoucmentFragment()：创建一个文档片段节点
+	document.createComment('comment')：创建一个注释节点，参数为注释值
+	document.createElement('ele')：创建元素节点，参数为标签名
+	document.createAttribute('att')：创建属性节点，参数为属性名
+	document.createTextNode('text')：创建文本节点，参数为文本值
+	ele.cloneNode()：用来复制已存在的节点。每个节点有该方法，返回该节点的一个全新副本，传递一个可选的布尔值为参数，如果参数true则同时克隆该节点的所有后代节点，否则只克隆该节点，默认为false
 
-	改造（改）：
-		parentNode.appendChild(newNode)：接受一个节点对象为参数，将它作为最后一个子节点，插入当前节点
-		parentNode.insertBefore(newNode,oldNode)：在oldNode节点前，插入一个newNode节点
-		inserAfter(parentNode,newNode,oldNode)：
-			function inserAfter(parentNode,newNode,oldNode){
-				if(oldNode.nextSibling){
-					parentNode.insertBefore(newNode,oldNode.nextSibling)
-				}
-				else{
-					parentNode.appendChild(newNode)
-				}
+###改造结构（改）：
+
+	parentNode.appendChild(newNode)：接受一个节点对象为参数，将它作为最后一个子节点，插入当前节点
+	parentNode.insertBefore(newNode,oldNode)：在oldNode节点前，插入一个newNode节点
+	inserAfter(parentNode,newNode,oldNode)：
+		function inserAfter(parentNode,newNode,oldNode){
+			if(oldNode.nextSibling){
+				parentNode.insertBefore(newNode,oldNode.nextSibling)
 			}
+			else{
+				parentNode.appendChild(newNode)
+			}
+		}
 
-		*   如果要插入的节点是已存在文档中，那个节点将自动从它当前的位置移除并在新的位置重新插入
-			调用上述方法的对象都是父节点，因为添加的位置都是在子一层，那么调用对象应该处于父层
+	*  如果要插入的节点是已存在文档中，那个节点将自动从它当前的位置移除并在新的位置重新插入
+
+###删除节点（删）
+		
+	ele.parentNode.removeChild(ele)：删除父节点的一个子节点
+	oldEle.parentNode.replaceChild(newEle, oldEle)：把父节点的一个子节点替换成另外一个节点
+
+###查找节点（查）
 
 
-	删除（删）：
-		ele.parentNode.removeChild(ele)：删除父节点的一个子节点
-		oldEle.parentNode.replaceChild(newEle, oldEle)：把父节点的一个子节点替换成另外一个节点
+## DOM元素的几何尺寸
 
-		* 同样的，上述方法都是在父节点上调用的，如果不确定父节点，就可以用 oldEle.parentNode
+### 基本概念
 
+文档：即HTML文档，document。
 
+视口：浏览器用来显示文档的区域，除去标签页，滚动条，乱七八糟的，剩下就是视口。
 
-## DOM元素的几何尺寸：
+坐标：元素的X和Y坐标元素自身的左上角是相对于视口或者文档的左上角的距离。
 
-### 基本概念：
-
-　　文档：即HTML文档，document。
-　　视口：浏览器用来显示文档的区域，除去标签页，滚动条，乱七八糟的，剩下就是视口。
-　　坐标：元素的X和Y坐标元素自身的左上角是相对于视口或者文档的左上角的距离。
-
-### 查询元素的几何尺寸：
+### 查询元素的几何尺寸
 	eleNode.getBoundingClientRect()：返回当前元素的一个坐标对象
 	{
-		x：元素左上角相对于视口的横坐标（浏览器不存在）
-		y：元素顶部相对于视口的纵坐标 （浏览器不存在）
 		top：元素顶部相对于视口的纵坐标，与y属性相等 
 		bottom：元素底部相对于视口的纵坐标 （等于top加上height）
 		left：元素左上角相对于视口的横坐标，与x属性相等 
@@ -200,9 +193,7 @@ HTMLCollection实例对象与NodeList实例对象类似，也是节点对象的�
 		height：元素实际高度（等于y加上height）
 	}
 
-
-
-### 查询元素的具体几何尺寸：
+### 查询元素的具体几何尺寸
 
 	clientHeight：获取当前元素的可视区域高度，即内容区的高度+padding-top+padding-bottom
 	clientWidth:  同clientHeight
@@ -235,7 +226,7 @@ HTMLCollection实例对象与NodeList实例对象类似，也是节点对象的�
 	document.body.scrollLeft    //网页可见区域宽
 	document.body.scrollTop	 //网页可见区域宽
 	
-获取页面大小大全：
+###获取页面大小大全：
 
 	document.body.clientWidth	//网页可见区域宽
 	document.body.clientHeight   //网页可见区域高
