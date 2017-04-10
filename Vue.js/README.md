@@ -5,5 +5,3 @@
 
 * [Section1.2](/Vue.js/section7.2.md)
 
-
-
