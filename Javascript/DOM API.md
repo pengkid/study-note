@@ -237,39 +237,33 @@ HTMLCollection实例对象与NodeList实例对象类似，也是节点对象的�
 获取页面大小大全：
 
 	document.body.clientWidth	//网页可见区域宽
-	网页可见区域高：document.body.clientHeight
-	网页可见区域宽：document.body.offsetWidth(包括边线的宽)
-	网页可见区域高：document.body.offsetHeight(包括边线的宽)
-	网页正文全文宽：document.body.scrollWidth
-	网页正文全文高：document.body.scrollHeight
-	网页被卷去的高：document.body.scrollTop(IE7无效)
-	网页被卷去的左：document.body.scrollLeft(IE7无效)
+	document.body.clientHeight   //网页可见区域高
+	document.body.offsetWidth(包括边线的宽)	//网页可见区域宽
+	document.body.offsetHeight(包括边线的宽)   //网页可见区域高
+	document.body.scrollWidth	 //网页正文全文宽
+	document.body.scrollHeight	//网页正文全文高
+	document.body.scrollTop       //网页被卷去的高，IE7无效
+	document.body.scrollLeft      //网页被卷去的左，IE7无效
 
-	屏幕分辨率的高：window.screen.height
-	屏幕分辨率的宽：window.screen.width
-	屏幕可用工作区高度：window.screen.availHeight
-	屏幕可用工作区宽度：window.screen.availWidth
+	window.screen.height          //屏幕分辨率的高
+	window.screen.width           //屏幕分辨率的宽
+	window.screen.availHeight     //屏幕可用工作区高度
+	window.screen.availWidth      //屏幕可用工作区宽度
 
 
 
 ## 关于 document 鲜为人知的属性和方法：
 
-	document.documentElement
-	document.head
-	document.body
-	document.domain    	//查看当前文档的所在域名：
-	document.location      //同window对象的location属性，引用同一个location对象
-	document.cookie        //操作浏览器的cookie
-	document.referrer      //表示当前文档的访问来源，如果是无法获取来源或是用户直接键入网址，则返回一个空字符串
-	document.URL	       //获取当前文档的URL，该属性值与 location.href 的初始值相同
-	document.readyState    //获取文档的状态
-				loading：加载HTML代码阶段（尚未完成解析） 
-				interactive：加载外部资源阶段时 
-				complete：加载完成时（渲染树构建完成）
-				* 可以监听文档的状态，从而执行对应的JS代码，这比 window.onload 更高效
-
-
-	document.getSelection() //返回一个Selection对象，该对象描述了当前用户选取的一系列对象
-	document.getSelection().focusNode.data：获取当前用户选中的内容
+	document.documentElement  //返回 html 根元素，即整个文档
+	document.head             //返回 head 头标签
+	document.body             //返回 body 体标签
+	document.domain    	   //查看当前文档的所在域名：
+	document.location         //同window对象的location属性，引用同一个location对象
+	document.cookie           //操作浏览器的cookie
+	document.referrer         //表示当前文档的访问来源，如果是无法获取来源或是用户直接键入网址，则返回一个空字符串
+	document.URL	          //获取当前文档的URL，该属性值与 location.href 的初始值相同
+	document.readyState       //获取文档的状态，loading：加载HTML代码阶段（尚未完成解析），interactive：加载外部资源阶段时，complete：DOM节点树加载完成时
+	document.getSelection()   //返回一个Selection对象，该对象描述了当前用户选取的一系列对象 
+		document.getSelection().focusNode.data：获取当前用户选中的内容
 
 
