@@ -2,9 +2,9 @@
 
 DOM：文档对象模型，表示一系列操作HTML或者XML文档的基础API集合。
 
-DOM树：当浏览器加载文档的时候，浏览求会根据文档结构，解析出一系列的节点，并由这些节点组成一个树状结构。
+DOM树：当浏览器加载文档的时候，浏览器会根据文档结构，解析出一系列的节点对象，并由这些节点组成的一个树状结构。
 
-## [DOM七大节点类型：{#index1}](#index1)
+## [DOM七大节点类型{#index1}](#index1)
 	
 	文档节点(DOCUMENT_NODE)：代表整个文档，整个文档树的顶层节点
 	
@@ -23,9 +23,9 @@ DOM树：当浏览器加载文档的时候，浏览求会根据文档结构，�
 >DocumentFragment是一种特殊的Node，它可以作为其他节点的一个临时容器，使得一组节点被当做一个节点看待。其次，它独立的而不是文档的一部分，所以它的parentNode总是为null，但类似ElementNode，它可以有任意多的子节点，也可以使用appendChild()等方法。
 
 
-## [DOM节点遍历全攻略：{#index2}](#index2)
+## [DOM节点遍历全攻略{#index2}](#index2)
 
-### 节点之间的关系
+### 节点之间的关系{#index2.1}
 
 * 在一个节点之上的直接节点是其父节点 ，在其下一层的直接节点是其子节点
 
@@ -35,9 +35,7 @@ DOM树：当浏览器加载文档的时候，浏览求会根据文档结构，�
 
 * 一个节点的任何父节点、祖父节点和其上层的所有节点是其祖先节点
 
-### 承继自节点对象的子节点对象
-
-### 作为节点树的遍历
+### 作为节点树的遍历{#index2.2}
 
 Document对象、Element对象和Text对象等的实例对象都承继于Node对象。
 	
@@ -76,24 +74,23 @@ Document对象、Element对象和Text对象等的实例对象都承继于Node对
 		ele.childElementCount（子元素的数量，返回的值和children.length值相等）
 
 
-## NodeList对象和HTMLCollection对象：
+## NodeList对象和HTMLCollection对象{#index3}
 
 ### NodeList:
 
-NodeList的实例对象是一个类数组对象，它的成员是节点对象
+NodeList的实例对象是一个类数组对象，它的成员是节点对象。
+
+NodeList接口实例对象提供length属性和数字索引，因此可以像数组那样，使用数字索引取出每个节点。但是它本身并不是数组，不能使用pop或push之类数组特有的方法。
 	
-	比如 ele.childNodes、document.querySelectorAll()返回的都是NodeList的实例对象
+比如 ele.childNodes、document.querySelectorAll()返回的都是NodeList的实例对象
 		
 	document.childNodes instanceof NodeList   //true
 
-	NodeList接口实例对象提供length属性和数字索引，因此可以像数组那样，使用数字索引取出每个节点。但是它本身并不是数组，不能使用pop或push之类数组特有的方法
-
-
 ### HTMLCollection：
 
-HTMLCollection实例对象与NodeList实例对象类似，也是节点对象的集合，一个类数组对象
+HTMLCollection实例对象与NodeList实例对象类似，也是节点对象的集合，一个类数组对象。
 
-	比如 ele.children、document.forms返回的都是HMTLCollection的实例对象
+比如 ele.children、document.forms返回的都是HMTLCollection的实例对象。
 
 	document.forms instanceof HTMLCollection	//true
 
@@ -119,7 +116,6 @@ HTMLCollection实例对象与NodeList实例对象类似，也是节点对象的�
  * HTMLCollection实例的item方法，可以根据成员的位置参数（从0开始）返回该成员，如果取不到成员或数字索引不合法，则返回null
 
  * HTMLCollection实例的namedItem方法根据成员的ID属性或name属性，返回该成员，如果没有对应的成员，则返回null。这个方法是NodeList实例不具有的
-
 
 
 ## DOM元素内容大揭秘：
@@ -188,27 +184,30 @@ HTMLCollection实例对象与NodeList实例对象类似，也是节点对象的�
 
 
 ## DOM元素的几何尺寸：
-	基本概念：
-		文档：即HTML文档，document
-		视口：浏览器用来显示文档的区域，除去标签页，滚动条，乱七八糟的，剩下就是视口
-		坐标：元素的X和Y坐标元素自身的左上角是相对于视口或者文档的左上角的距离
 
-	查询元素的几何尺寸：
-		eleNode.getBoundingClientRect()：返回当前元素的一个坐标对象
-		{
-			x：元素左上角相对于视口的横坐标（浏览器不存在）
-			y：元素顶部相对于视口的纵坐标 （浏览器不存在）
-			top：元素顶部相对于视口的纵坐标，与y属性相等 
-			bottom：元素底部相对于视口的纵坐标 （等于top加上height）
-			left：元素左上角相对于视口的横坐标，与x属性相等 
-			right：元素右边界相对于视口的横坐标（等于left加上width）
-			width：元素实际宽度（等于right减去left） 
-			height：元素实际高度（等于y加上height）
-		}
+### 基本概念：
+
+　　文档：即HTML文档，document。
+　　视口：浏览器用来显示文档的区域，除去标签页，滚动条，乱七八糟的，剩下就是视口。
+　　坐标：元素的X和Y坐标元素自身的左上角是相对于视口或者文档的左上角的距离。
+
+### 查询元素的几何尺寸：
+	eleNode.getBoundingClientRect()：返回当前元素的一个坐标对象
+	{
+		x：元素左上角相对于视口的横坐标（浏览器不存在）
+		y：元素顶部相对于视口的纵坐标 （浏览器不存在）
+		top：元素顶部相对于视口的纵坐标，与y属性相等 
+		bottom：元素底部相对于视口的纵坐标 （等于top加上height）
+		left：元素左上角相对于视口的横坐标，与x属性相等 
+		right：元素右边界相对于视口的横坐标（等于left加上width）
+		width：元素实际宽度（等于right减去left） 
+		height：元素实际高度（等于y加上height）
+	}
 
 
 
-clientHeight、clientWidth、offsetHeight、offsetWidth、clientLeft、clientTop、offsetLeft、offsetTop 大揭秘：
+### 查询元素的具体几何尺寸：
+
 	clientHeight：获取当前元素的可视区域高度，即内容区的高度+padding-top+padding-bottom
 	clientWidth:  同clientHeight
 	offsetHeight: 获取当前元素的实际高度，即内容区的高度+padding-top+padding-bottom+border-top+border-bottom
@@ -219,31 +218,30 @@ clientHeight、clientWidth、offsetHeight、offsetWidth、clientLeft、clientTop
 	offsetLeft:   获取当前元素相对于父元素的位置，元素左边框到父元素左边框，绝对定位的 left + margin-left
 	offsetTop:    获取当前元素相对于父元素的位置，元素上边框到父元素上边框，绝对定位的 top + margin-top
 
+### 查询滚动元素的几何尺寸：
 
-
-scrollHeight、scrollWidth、scrollLeft、scrollTop 大揭秘：
 	scrollHeight：获取滚动元素的滚动区域总高度（不含边框）
 	scrollWidth： 同scrollWidth
-	* 不是滚动元素，则获取它们本身的可视区宽高（不含边框）
 
 	scrollLeft：  获取滚动条被隐藏的区域大小，滚动条左边框距离最左方区域
 	scrollTop：   获取滚动条被隐藏的区域大小，滚动条上边框距离最上方区域
-	要让滚动条滚动到最初始的位置，那么可以写一个函数：
+	
+要让滚动条滚动到最初始的位置，那么可以写一个函数：
+	
 	(function scrollStart (element) {
 		   if ( element.scrollTop != 0 ) {
 		       element.scrollTop = 0;
 		   }
 	})()
-	* 不是滚动元素，则获取这两值永恒为0
 
-	如果要查看整张网页的水平的和垂直的滚动距离，要从 document.body元素上读取
-		document.body.scrollLeft 
-		document.body.scrollTop
-	这两个属性都可读写，设置该属性的值，会导致浏览器将指定元素自动滚动到相应的位置
-
-
+如果要查看整张网页的水平的和垂直的滚动距离，要从 document.body元素上读取，这两个属性都可读写，设置该属性的值，会导致浏览器将指定元素自动滚动到相应的位置：
+		
+	document.body.scrollLeft    //网页可见区域宽
+	document.body.scrollTop	 //网页可见区域宽
+	
 获取页面大小大全：
-	网页可见区域宽：document.body.clientWidth
+
+	document.body.clientWidth	//网页可见区域宽
 	网页可见区域高：document.body.clientHeight
 	网页可见区域宽：document.body.offsetWidth(包括边线的宽)
 	网页可见区域高：document.body.offsetHeight(包括边线的宽)
@@ -260,17 +258,19 @@ scrollHeight、scrollWidth、scrollLeft、scrollTop 大揭秘：
 
 
 ## 关于 document 鲜为人知的属性和方法：
-	document.domain：查看当前文档的所在域名：
-	document.location：同window对象的location属性，引用同一个location对象
-	document.cookie：操作浏览器的cookie
-	document.referrer：表示当前文档的访问来源，如果是无法获取来源或是用户直接键入网址，则返回一个空字符串
-	document.URL：获取当前文档的URL，该属性值与 location.href 的初始值相同
-	document.readyState：获取文档的状态
+	document.domain    	//查看当前文档的所在域名：
+	document.location      //同window对象的location属性，引用同一个location对象
+	document.cookie        //操作浏览器的cookie
+	document.referrer      //表示当前文档的访问来源，如果是无法获取来源或是用户直接键入网址，则返回一个空字符串
+	document.URL	       //获取当前文档的URL，该属性值与 location.href 的初始值相同
+	document.readyState    //获取文档的状态
 				loading：加载HTML代码阶段（尚未完成解析） 
 				interactive：加载外部资源阶段时 
 				complete：加载完成时（渲染树构建完成）
 				* 可以监听文档的状态，从而执行对应的JS代码，这比 window.onload 更高效
 
 
-	document.getSelection()：返回一个Selection对象，该对象描述了当前用户选取的一系列对象
-		document.getSelection().focusNode.data：获取当前用户选中的内容
+	document.getSelection() //返回一个Selection对象，该对象描述了当前用户选取的一系列对象
+	document.getSelection().focusNode.data：获取当前用户选中的内容
+
+
