@@ -253,6 +253,12 @@ HTMLCollection实例对象与NodeList实例对象类似，也是节点对象的�
 
 
 ## 关于 document 鲜为人知的属性和方法：
+Document对象还定义了三个属性，它们指代特殊的单个元素而非元素的集合
+document.body是一个HTML文档的<body>元素，document.head是<head>元素
+document.documentElement属性指代文档的根元素，在HTML文档中，它总是指代<html>元素
+	document.documentElement
+	document.head
+	document.body
 	document.domain    	//查看当前文档的所在域名：
 	document.location      //同window对象的location属性，引用同一个location对象
 	document.cookie        //操作浏览器的cookie
