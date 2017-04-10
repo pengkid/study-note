@@ -18,7 +18,7 @@
 * [关于 document 鲜为人知的属性和方法](#index7)
 
 
-# <font color="#4590a3" size = "6px">文字</font>DOM API{#index}
+# <font color="#4590a3">DOM API{#index}</font>
 
 DOM：文档对象模型，表示一系列操作HTML或者XML文档的基础API集合。
 
