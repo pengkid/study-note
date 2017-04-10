@@ -94,7 +94,7 @@ HTMLCollection实例对象与NodeList实例对象类似，也是节点对象的�
 
 	document.forms instanceof HTMLCollection	//true
 
-在Document对象中，有一些快捷属性来访问元素节点比如：document.images、document.forms和document.links等属性指向类数组的<img>、<form>和<a>元素集合。这些属性都是返回HTMLCollection实例对象。
+在Document对象中，有一些快捷属性来访问元素节点比如：document.images、document.forms和document.links等属性指向类数组的 img、form 和 a 元素集合。这些属性都是返回HTMLCollection实例对象。
 	
 在HTML5中，加入了document.scripts，它是HTMLCollection类型的<script>元素的集合。
 
@@ -253,9 +253,7 @@ HTMLCollection实例对象与NodeList实例对象类似，也是节点对象的�
 
 
 ## 关于 document 鲜为人知的属性和方法：
-Document对象还定义了三个属性，它们指代特殊的单个元素而非元素的集合
-document.body是一个HTML文档的<body>元素，document.head是<head>元素
-document.documentElement属性指代文档的根元素，在HTML文档中，它总是指代<html>元素
+
 	document.documentElement
 	document.head
 	document.body
