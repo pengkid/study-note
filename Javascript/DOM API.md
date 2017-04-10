@@ -1,11 +1,31 @@
-# [DOM API{#index}](#index)
+* [DOM七大节点类型](#index1)
+* [DOM节点遍历全攻略](#index2)
+ * [节点之间的关系](#index2.1)
+ * [作为节点树的遍历](#index2.2)
+ * [作为元素树的遍历](#index2.3)
+* [NodeList对象和HTMLCollection对象](index3)
+* [DOM元素内容大揭秘](index4)
+* [DOM节点增改删查](#index5)
+ * [创建节点（赠）](#index5.1)
+ * [改造结构（改）](#index5.2)
+ * [删除节点（删）](#index5.3)
+ * [查找节点（查）](#index5.4)
+* [DOM元素的几何尺寸](#index6)
+ * [基本概念](#index6.1)
+ * [查询元素的几何尺寸](#index6.2)
+ * [查询滚动元素的几何尺寸](#index6.3)
+ * [页面尺寸](#index6.4)
+* [关于 document 鲜为人知的属性和方法](#index7)
+
+
+# DOM API{#index}
 
 DOM：文档对象模型，表示一系列操作HTML或者XML文档的基础API集合。
 
 DOM树：当浏览器加载文档的时候，浏览器会根据文档结构，解析出一系列的节点对象，并由这些节点组成的一个树状结构。
 
 
-## [DOM七大节点类型{#index1}](#index1)
+## DOM七大节点类型{#index1}
 	
 	文档节点(DOCUMENT_NODE)：代表整个文档，整个文档树的顶层节点
 	
@@ -24,7 +44,7 @@ DOM树：当浏览器加载文档的时候，浏览器会根据文档结构，�
 >DocumentFragment是一种特殊的Node，它可以作为其他节点的一个临时容器，使得一组节点被当做一个节点看待。其次，它独立的而不是文档的一部分，所以它的parentNode总是为null，但类似ElementNode，它可以有任意多的子节点，也可以使用appendChild()等方法。
 
 
-## [DOM节点遍历全攻略{#index2}](#index2)
+## DOM节点遍历全攻略{#index2}
 
 ### 节点之间的关系{#index2.1}
 
@@ -63,7 +83,7 @@ Document对象、Element对象和Text对象等的实例对象都承继于Node对
 	访问节点值：
 		ele.nodeValue（只有文本节点和注释节点能返回自身文本字符串，其他节点都返回 null ）
 
-### 作为元素树的遍历
+### 作为元素树的遍历{#index2.3}
 
 JavaScript提供了另外一组API，它将文档看做是元素树，忽略部分文档：Text和Comment节点。
 
@@ -85,7 +105,7 @@ JavaScript提供了另外一组API，它将文档看做是元素树，忽略部�
 
 ## NodeList对象和HTMLCollection对象{#index3}
 
-### NodeList
+### NodeList{#index3.1}
 
 NodeList的实例对象是一个类数组对象，它的成员是节点对象。
 
@@ -95,7 +115,7 @@ NodeList接口实例对象提供length属性和数字索引，因此可以像数
 		
 	document.childNodes instanceof NodeList   //true
 
-### HTMLCollection
+### HTMLCollection{#index3.2}
 
 HTMLCollection实例对象与NodeList实例对象类似，也是节点对象的集合，一个类数组对象。
 
@@ -107,7 +127,7 @@ HTMLCollection实例对象与NodeList实例对象类似，也是节点对象的�
 	
 在HTML5中，加入了document.scripts，它是HTMLCollection类型的 script 元素的集合。
 
-### HTMLCollection与NodeList的区别
+### HTMLCollection与NodeList的区别{#index3.3}
 
 二者的实例对象都是类数组对象，但是二者存在某些区别：
 
@@ -122,7 +142,7 @@ HTMLCollection实例对象与NodeList实例对象类似，也是节点对象的�
  * HTMLCollection实例的namedItem方法根据成员的ID属性或name属性，返回该成员，如果没有对应的成员，则返回null。这个方法是NodeList实例不具有的
 
 
-## DOM元素内容大揭秘：
+## DOM元素内容大揭秘：{#index4}
 	ele.innerHTML：返回该元素的元素内容（可修改）
 	ele.outerHTML：返回该元素所有HTML代码，包括自身和所有子元素（可修改）
 	ele.insertAdjacentHTML()：将任意的HTML标记字符插入到指定的元素“相邻”的位置。
@@ -137,21 +157,21 @@ HTMLCollection实例对象与NodeList实例对象类似，也是节点对象的�
 
 
 
-## DOM节点增改删查：
+## DOM节点增改删查{#index5}
 
-###创建节点（增）：
+###创建节点（增）{#index5.1}
 	
-	document.createDoucmentFragment()：创建一个文档片段节点
-	document.createComment('comment')：创建一个注释节点，参数为注释值
-	document.createElement('ele')：创建元素节点，参数为标签名
-	document.createAttribute('att')：创建属性节点，参数为属性名
-	document.createTextNode('text')：创建文本节点，参数为文本值
-	ele.cloneNode()：用来复制已存在的节点。每个节点有该方法，返回该节点的一个全新副本，传递一个可选的布尔值为参数，如果参数true则同时克隆该节点的所有后代节点，否则只克隆该节点，默认为false
+	document.createDoucmentFragment()  //创建一个文档片段节点
+	document.createComment('comment')  //创建一个注释节点，参数为注释值
+	document.createElement('ele')      //创建元素节点，参数为标签名
+	document.createAttribute('att')    //创建属性节点，参数为属性名
+	document.createTextNode('text')    //创建文本节点，参数为文本值
+	ele.cloneNode()    //用来复制已存在的节点。每个节点有该方法，返回该节点的一个全新副本，传递一个可选的布尔值为参数，如果参数true则同时克隆该节点的所有后代节点，否则只克隆该节点，默认为false
 
-###改造结构（改）：
+###改造结构（改）{#index5.2}
 
-	parentNode.appendChild(newNode)：接受一个节点对象为参数，将它作为最后一个子节点，插入当前节点
-	parentNode.insertBefore(newNode,oldNode)：在oldNode节点前，插入一个newNode节点
+	parentNode.appendChild(newNode)   //接受一个节点对象为参数，将它作为最后一个子节点，插入当前节点
+	parentNode.insertBefore(newNode,oldNode)  //在oldNode节点前，插入一个newNode节点
 	inserAfter(parentNode,newNode,oldNode)：
 		function inserAfter(parentNode,newNode,oldNode){
 			if(oldNode.nextSibling){
@@ -164,25 +184,40 @@ HTMLCollection实例对象与NodeList实例对象类似，也是节点对象的�
 
 	*  如果要插入的节点是已存在文档中，那个节点将自动从它当前的位置移除并在新的位置重新插入
 
-###删除节点（删）
+###删除节点（删）{#index5.3}
 		
-	ele.parentNode.removeChild(ele)：删除父节点的一个子节点
-	oldEle.parentNode.replaceChild(newEle, oldEle)：把父节点的一个子节点替换成另外一个节点
+	ele.parentNode.removeChild(ele)                 //删除父节点的一个子节点
+	oldEle.parentNode.replaceChild(newEle, oldEle)  //把父节点的一个子节点替换成另外一个节点
 
-###查找节点（查）
+###查找节点（查）{#index5.4}
+
+&nbsp;&nbsp;&nbsp;&nbsp;查找元素节点
+
+	document.getElementById()
+	document.getElementsByClassName()
+	document.getElementsByTagName()
+	document.querySeletor()     //接受一个CSS选择器的字符串参数，返回第一个匹配的元素（以文档顺序），如果没有匹配的元素就返回null
+	document.querySelectorAll() //接受一个CSS选择器的字符串参数，返回一个代表文档中匹配选择器的所有元素的NodeList对象。如果没有匹配的元素，则返回一个空的NodeList对象
+	
+&nbsp;&nbsp;&nbsp;&nbsp;查找属性节点
+
+	eleNode.getAttribute('att')	//可读写
+	eleNode.setAttribute('att','newAtt')
 
 
-## DOM元素的几何尺寸
 
-### 基本概念
+## DOM元素的几何尺寸{#index6}
 
-文档：即HTML文档，document。
+### 基本概念{#index6.1}
 
-视口：浏览器用来显示文档的区域，除去标签页，滚动条，乱七八糟的，剩下就是视口。
+&nbsp;&nbsp;&nbsp;&nbsp; 文档：即HTML文档，document。
 
-坐标：元素的X和Y坐标元素自身的左上角是相对于视口或者文档的左上角的距离。
+&nbsp;&nbsp;&nbsp;&nbsp; 视口：浏览器用来显示文档的区域，除去标签页，滚动条，乱七八糟的，剩下就是视口。
 
-### 查询元素的几何尺寸
+&nbsp;&nbsp;&nbsp;&nbsp; 坐标：元素的X和Y坐标元素自身的左上角是相对于视口或者文档的左上角的距离。
+
+### 查询元素的几何尺寸{#index6.2}
+
 	eleNode.getBoundingClientRect()：返回当前元素的一个坐标对象
 	{
 		top：元素顶部相对于视口的纵坐标，与y属性相等 
@@ -193,40 +228,41 @@ HTMLCollection实例对象与NodeList实例对象类似，也是节点对象的�
 		height：元素实际高度（等于y加上height）
 	}
 
-### 查询元素的具体几何尺寸
+具体查询元素的具体几何尺寸
 
-	clientHeight：获取当前元素的可视区域高度，即内容区的高度+padding-top+padding-bottom
-	clientWidth:  同clientHeight
-	offsetHeight: 获取当前元素的实际高度，即内容区的高度+padding-top+padding-bottom+border-top+border-bottom
-	offsetWidth:  同offsetHeight
+	clientHeight  //获取当前元素的可视区域高度，即内容区的高度+padding-top+padding-bottom
+	clientWidth   //获取当前元素的可视区域宽度，即内容区的宽度+padding-left+padding-right
+
+	offsetHeight  //获取当前元素的实际高度，即内容区的高度+padding-top+padding-bottom+border-top+border-bottom
+	offsetWidth   //获取当前元素的实际宽度，即内容区的宽度+padding-left+padding-right+border-left+border-right
 	
-	clientLeft:   获取当前元素的左边框，右边框 = (offsetWidth - clientWidth) - clientLeft
-	clientTop：   获取当前元素的上边框，底边框 = (offsetHeight - clientHeight) - clientTop
-	offsetLeft:   获取当前元素相对于父元素的位置，元素左边框到父元素左边框，绝对定位的 left + margin-left
-	offsetTop:    获取当前元素相对于父元素的位置，元素上边框到父元素上边框，绝对定位的 top + margin-top
+	clientLeft    //获取当前元素的左边框，右边框 = (offsetWidth - clientWidth) - clientLeft
+	clientTop     //获取当前元素的上边框，底边框 = (offsetHeight - clientHeight) - clientTop
+	offsetLeft    //获取当前元素相对于父元素的位置，元素左边框到父元素左边框，绝对定位的 left + margin-left
+	offsetTop     //获取当前元素相对于父元素的位置，元素上边框到父元素上边框，绝对定位的 top + margin-top
 
-### 查询滚动元素的几何尺寸：
+### 查询滚动元素的几何尺寸{#index6.3}
 
-	scrollHeight：获取滚动元素的滚动区域总高度（不含边框）
-	scrollWidth： 同scrollWidth
+	scrollHeight  //获取滚动元素的滚动区域总高度（不含边框）
+	scrollWidth   //获取滚动元素的滚动区域总宽度（不含边框）
 
-	scrollLeft：  获取滚动条被隐藏的区域大小，滚动条左边框距离最左方区域
-	scrollTop：   获取滚动条被隐藏的区域大小，滚动条上边框距离最上方区域
+	scrollLeft    //获取滚动条被隐藏的区域大小，滚动条左边框距离最左方区域
+	scrollTop     //获取滚动条被隐藏的区域大小，滚动条上边框距离最上方区域
 	
 要让滚动条滚动到最初始的位置，那么可以写一个函数：
 	
-	(function scrollStart (element) {
+	function scrollStart (element) {
 		   if ( element.scrollTop != 0 ) {
 		       element.scrollTop = 0;
 		   }
-	})()
+	}
 
 如果要查看整张网页的水平的和垂直的滚动距离，要从 document.body元素上读取，这两个属性都可读写，设置该属性的值，会导致浏览器将指定元素自动滚动到相应的位置：
 		
 	document.body.scrollLeft    //网页可见区域宽
 	document.body.scrollTop	 //网页可见区域宽
 	
-###获取页面大小大全：
+###获取页面大小大全{index6.4}
 
 	document.body.clientWidth	//网页可见区域宽
 	document.body.clientHeight   //网页可见区域高
@@ -244,7 +280,7 @@ HTMLCollection实例对象与NodeList实例对象类似，也是节点对象的�
 
 
 
-## 关于 document 鲜为人知的属性和方法：
+## 关于 document 鲜为人知的属性和方法{#index7}
 
 	document.documentElement  //返回 html 根元素，即整个文档
 	document.head             //返回 head 头标签
