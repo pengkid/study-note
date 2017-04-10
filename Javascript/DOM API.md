@@ -4,6 +4,7 @@ DOM：文档对象模型，表示一系列操作HTML或者XML文档的基础API�
 
 DOM树：当浏览器加载文档的时候，浏览器会根据文档结构，解析出一系列的节点对象，并由这些节点组成的一个树状结构。
 
+
 ## [DOM七大节点类型{#index1}](#index1)
 	
 	文档节点(DOCUMENT_NODE)：代表整个文档，整个文档树的顶层节点
@@ -59,7 +60,7 @@ Document对象、Element对象和Text对象等的实例对象都承继于Node对
 
 ### 作为元素树的遍历
 
-JavaScript提供了另外一个API，它将文档看做是元素树，忽略部分文档：Text和Comment节点。
+JavaScript提供了另外一组API，它将文档看做是元素树，忽略部分文档：Text和Comment节点。
 
 	访问子元素节点：
 		ele.children（类似ele.childNodes，返回一个类数组对象，但只包含元素子节点）
