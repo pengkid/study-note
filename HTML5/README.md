@@ -8,5 +8,3 @@
  * [storage API](/HTML5/storage API.2.md)
  
  * [canvas API](/HTML5/canvas API.2.md)
-
-
