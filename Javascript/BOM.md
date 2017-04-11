@@ -1,4 +1,4 @@
-## <fon color="4590a3">概述</font>
+## <font color="4590a3">概述</font>
 
 javascript所有对象都在`window`这个**顶层对象**之中。
 
@@ -89,7 +89,8 @@ BOM 是为了操作浏览器出现的 API，window 是其的一个对象。
   * `protocol` ：所使用的 web 协议（http:// 或 https://）
   * `href` ：当前url，对它赋值可以实现重定向
   * `reload()` ：这是一个方法，调用后会刷新当前页面
-
+   
+  
 * `window.history`:提供浏览器历史的操作
 
   * `history.back()` ：与在浏览器点击后退按钮相同
