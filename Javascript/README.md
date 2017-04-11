@@ -1,9 +1,9 @@
 ## 笔记目录
 
 
-   * [DOM API](/Javascript/DOM API.md)
+   * [DOM API](/Javascript/DOM.md)
   
-   * [BOM API](/Javascript/BOM API.md)
+   * [BOM API](/Javascript/BOM.md)
   
    * [数据类型转换总结](/Javascript/数据类型转换总结.md)
   
