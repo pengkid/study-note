@@ -1,20 +1,20 @@
 * [DOM七大节点类型](#index1)
 * [DOM节点遍历全攻略](#index2)
- * [节点之间的关系](#index2.1)
- * [作为节点树的遍历](#index2.2)
- * [作为元素树的遍历](#index2.3)
+ * [节点之间的关系](#index2_1)
+ * [作为节点树的遍历](#index2_2)
+ * [作为元素树的遍历](#index2_3)
 * [NodeList对象和HTMLCollection对象](#index3)
 * [DOM元素内容大揭秘](#index4)
 * [DOM节点增改删查](#index5)
- * [创建节点（赠）](#index5.1)
- * [改造结构（改）](#index5.2)
- * [删除节点（删）](#index5.3)
- * [查找节点（查）](#index5.4)
+ * [创建节点（赠）](#index5_1)
+ * [改造结构（改）](#index5_2)
+ * [删除节点（删）](#index5_3)
+ * [查找节点（查）](#index5_4)
 * [DOM元素的几何尺寸](#index6)
- * [基本概念](#index6.1)
- * [查询元素的几何尺寸](#index6.2)
- * [查询滚动元素的几何尺寸](#index6.3)
- * [页面尺寸](#index6.4)
+ * [基本概念](#index6_1)
+ * [查询元素的几何尺寸](#index6_2)
+ * [查询滚动元素的几何尺寸](#index6_3)
+ * [页面尺寸](#index6_4)
 * [关于 document 鲜为人知的属性和方法](#index7)
 
 
@@ -46,7 +46,7 @@ DOM树：当浏览器加载文档的时候，浏览器会根据文档结构，�
 
 ## <font color="4590a3">DOM节点遍历全攻略{#index2}</font>
 
-### <font color="4590a3">节点之间的关系{#index2.1}</font>
+### <font color="4590a3">节点之间的关系{#index2_1}</font>
 
 * 在一个节点之上的直接节点是其父节点 ，在其下一层的直接节点是其子节点
 
@@ -56,7 +56,7 @@ DOM树：当浏览器加载文档的时候，浏览器会根据文档结构，�
 
 * 一个节点的任何父节点、祖父节点和其上层的所有节点是其祖先节点
 
-### <font color="4590a3">作为节点树的遍历{#index2.2}</font>
+### <font color="4590a3">作为节点树的遍历{#index2_2}</font>
 
 Document对象、Element对象和Text对象等的实例对象都承继于Node对象。
 	
@@ -83,7 +83,7 @@ Document对象、Element对象和Text对象等的实例对象都承继于Node对
 	访问节点值：
 		ele.nodeValue（只有文本节点和注释节点能返回自身文本字符串，其他节点都返回 null ）
 
-### <font color="4590a3">作为元素树的遍历{#index2.3}</font>
+### <font color="4590a3">作为元素树的遍历{#index2_3}</font>
 
 JavaScript提供了另外一组API，它将文档看做是元素树，忽略部分文档：Text和Comment节点。
 
@@ -105,7 +105,7 @@ JavaScript提供了另外一组API，它将文档看做是元素树，忽略部�
 
 ## <font color="4590a3">NodeList对象和HTMLCollection对象{#index3}</font>
 
-### <font color="4590a3">NodeList{#index3.1}</font>
+### <font color="4590a3">NodeList{#index3_1}</font>
 
 NodeList的实例对象是一个类数组对象，它的成员是节点对象。
 
@@ -115,7 +115,7 @@ NodeList接口实例对象提供length属性和数字索引，因此可以像数
 		
 	document.childNodes instanceof NodeList   //true
 
-### <font color='4590a3'>HTMLCollection{#index3.2}</font>
+### <font color='4590a3'>HTMLCollection{#index3_2}</font>
 
 HTMLCollection实例对象与NodeList实例对象类似，也是节点对象的集合，一个类数组对象。
 
@@ -127,7 +127,7 @@ HTMLCollection实例对象与NodeList实例对象类似，也是节点对象的�
 	
 在HTML5中，加入了document.scripts，它是HTMLCollection类型的 script 元素的集合。
 
-### <font color="4590a3">HTMLCollection与NodeList的区别{#index3.3}</font>
+### <font color="4590a3">HTMLCollection与NodeList的区别{#index3_3}</font>
 
 二者的实例对象都是类数组对象，但是二者存在某些区别：
 
@@ -158,7 +158,7 @@ HTMLCollection实例对象与NodeList实例对象类似，也是节点对象的�
 
 ## <font color="4590a3">DOM节点增改删查{#index5}</font>
 
-### <font color="4590a3">创建节点（增）{#index5.1}</font>
+### <font color="4590a3">创建节点（增）{#index5_1}</font>
 	
 	document.createDoucmentFragment()  //创建一个文档片段节点
 	document.createComment('comment')  //创建一个注释节点，参数为注释值
@@ -167,7 +167,7 @@ HTMLCollection实例对象与NodeList实例对象类似，也是节点对象的�
 	document.createTextNode('text')    //创建文本节点，参数为文本值
 	ele.cloneNode()    //用来复制已存在的节点。每个节点有该方法，返回该节点的一个全新副本，传递一个可选的布尔值为参数，如果参数true则同时克隆该节点的所有后代节点，否则只克隆该节点，默认为false
 
-### <font color="4590a3">改造结构（改）{#index5.2}</font>
+### <font color="4590a3">改造结构（改）{#index5_2}</font>
 
 	parentNode.appendChild(newNode)   //接受一个节点对象为参数，将它作为最后一个子节点，插入当前节点
 	parentNode.insertBefore(newNode,oldNode)  //在oldNode节点前，插入一个newNode节点
@@ -183,12 +183,12 @@ HTMLCollection实例对象与NodeList实例对象类似，也是节点对象的�
 
 	*  如果要插入的节点是已存在文档中，那个节点将自动从它当前的位置移除并在新的位置重新插入
 
-### <font color="4590a3">删除节点（删）{#index5.3}</font>
+### <font color="4590a3">删除节点（删）{#index5_3}</font>
 		
 	ele.parentNode.removeChild(ele)                 //删除父节点的一个子节点
 	oldEle.parentNode.replaceChild(newEle, oldEle)  //把父节点的一个子节点替换成另外一个节点
 
-### <font color="4590a3">查找节点（查）{#index5.4}</font>
+### <font color="4590a3">查找节点（查）{#index5_4}</font>
 
 &nbsp;&nbsp;&nbsp;&nbsp;查找元素节点
 
@@ -206,7 +206,7 @@ HTMLCollection实例对象与NodeList实例对象类似，也是节点对象的�
 
 ## <font color="4590a3">DOM元素的几何尺寸{#index6}</font>
 
-### <font color="4590a3">基本概念{#index6.1}</font>
+### <font color="4590a3">基本概念{#index6_1}</font>
 
 &nbsp;&nbsp;&nbsp;&nbsp; 文档：即HTML文档，document。
 
@@ -214,7 +214,7 @@ HTMLCollection实例对象与NodeList实例对象类似，也是节点对象的�
 
 &nbsp;&nbsp;&nbsp;&nbsp; 坐标：元素的X和Y坐标元素自身的左上角是相对于视口或者文档的左上角的距离。
 
-### <font color="4590a3">查询元素的几何尺寸{#index6.2}</font>
+### <font color="4590a3">查询元素的几何尺寸{#index6_2}</font>
 
 	eleNode.getBoundingClientRect()：返回当前元素的一个坐标对象
 	{
@@ -239,7 +239,7 @@ HTMLCollection实例对象与NodeList实例对象类似，也是节点对象的�
 	offsetLeft    //获取当前元素相对于父元素的位置，元素左边框到父元素左边框，绝对定位的 left + margin-left
 	offsetTop     //获取当前元素相对于父元素的位置，元素上边框到父元素上边框，绝对定位的 top + margin-top
 
-### <font color="4590a3">查询滚动元素的几何尺寸{#index6.3}</font>
+### <font color="4590a3">查询滚动元素的几何尺寸{#index6_3}</font>
 
 	scrollHeight  //获取滚动元素的滚动区域总高度（不含边框）
 	scrollWidth   //获取滚动元素的滚动区域总宽度（不含边框）
@@ -260,7 +260,7 @@ HTMLCollection实例对象与NodeList实例对象类似，也是节点对象的�
 	document.body.scrollLeft    //网页可见区域宽
 	document.body.scrollTop	 //网页可见区域宽
 	
-### <font color="4590a3">获取页面大小大全{index6.4}</font>
+### <font color="4590a3">获取页面大小大全{index6_4}</font>
 
 	document.body.clientWidth	//网页可见区域宽
 	document.body.clientHeight   //网页可见区域高

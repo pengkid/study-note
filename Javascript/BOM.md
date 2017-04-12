@@ -2,7 +2,7 @@
 * [窗口](#index2)
 * [Navigator](#index3)
 * [BOM](#index4)
-  * [window下的全局变量](#index4.1)
+  * [window下的全局变量](#index4_1)
 
 ## <font color="4590a3">概述{#index1}</font>
 
@@ -66,7 +66,7 @@ DOM 是为了操作文档出现的 API，document 是其的一个对象；
 BOM 是为了操作浏览器出现的 API，window 是其的一个对象。
 
 
-### <font color="4590a3">window下的全局变量{#index4.1}</font>
+### <font color="4590a3">window下的全局变量{#index4_1}</font>
 
 * `innerHeight/innerWidth`：浏览器窗口内部高度/宽度
 
