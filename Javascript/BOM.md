@@ -1,4 +1,10 @@
-## <font color="4590a3">概述</font>
+* [概述](#index1)
+* [窗口](#index2)
+* [Navigator](#index3)
+* [BOM](#index4)
+  * [window下的全局变量](#index4.1)
+
+## <font color="4590a3">概述{#index1}</font>
 
 javascript所有对象都在`window`这个**顶层对象**之中。
 
@@ -10,7 +16,7 @@ window.a  // 1
 
 > 所有未声明就赋值的变量都自动变成window对象的属性。
 
-## <font color="4590a3">窗口</font>
+## <font color="4590a3">窗口{#index2}</font>
 
 * window.screenX，window.screenY
 
@@ -34,7 +40,7 @@ window.pageXOffset属性返回页面的水平滚动距离，window.pageYOffset�
 
 `screen.colorDepth`属性返回屏幕的颜色深度，一般为16（表示16-bit）或24（表示24-bit）。
 
-## <font color="4590a3">navigator对象</font>
+## <font color="4590a3">navigator对象{#index3}</font>
 
 * navigator.userAgent属性
 
@@ -42,21 +48,11 @@ window.pageXOffset属性返回页面的水平滚动距离，window.pageYOffset�
 
 我目前浏览器信息：
 
-> mozilla/5.0 \(windows nt 10.0; wow64\) applewebkit/537.36 \(khtml, like gecko\) chrome/50.0.2661.94 safari/537.36"
->
-> 参考：[http://javascript.ruanyifeng.com/bom/window.html](http://javascript.ruanyifeng.com/bom/window.html)
+> "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36"
 
-浏览器窗体模型:
 
-$\(window\)： 浏览器显示网页内容的部分
 
-$\(document\):整个网页文档流
-
-$\("body"\):就是body
-
-> [http://www.cnblogs.com/luhe/archive/2012/11/08/2760619.html](http://www.cnblogs.com/luhe/archive/2012/11/08/2760619.html)
-
-## <font color="4590a3">BOM对象</font>
+## <font color="4590a3">BOM{#index4}</font>
 
 window 也是 BOM 的一个对象，除去编程意义上的“兜底对象”之外，通过这个对象可以获取窗口位置、确定窗口大小、弹出对话框等等。例如我要关闭当前窗口：
 
@@ -69,7 +65,8 @@ DOM 是为了操作文档出现的 API，document 是其的一个对象；
 
 BOM 是为了操作浏览器出现的 API，window 是其的一个对象。
 
-### <font color="4590a3">`window`下的全局变量</font>
+
+### <font color="4590a3">`window`下的全局变量{#index4.1}</font>
 
 * `innerHeight/innerWidth`：浏览器窗口内部高度/宽度；
 
@@ -89,8 +86,8 @@ BOM 是为了操作浏览器出现的 API，window 是其的一个对象。
   * `protocol` ：所使用的 web 协议（http:// 或 https://）
   * `href` ：当前url，对它赋值可以实现重定向
   * `reload()` ：这是一个方法，调用后会刷新当前页面
-   
   
+
 * `window.history`:提供浏览器历史的操作
 
   * `history.back()` ：与在浏览器点击后退按钮相同
