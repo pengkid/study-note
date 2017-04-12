@@ -68,17 +68,17 @@ BOM 是为了操作浏览器出现的 API，window 是其的一个对象。
 
 ### <font color="4590a3">window下的全局变量{#index4.1}</font>
 
-* `innerHeight/innerWidth`：浏览器窗口内部高度/宽度；
+* `innerHeight/innerWidth`：浏览器窗口内部高度/宽度
 
-* `navigator`：包含有关访问者浏览器的信息；
+* `navigator`：包含有关访问者浏览器的信息
 
-* `screen`：访问者屏幕的宽度，以像素计；
+* `screen`：访问者屏幕的宽度，以像素计
 
-* `setTimeout()/clearTimeout()`：定时器/取消定时；
+* `setTimeout()/clearTimeout()`：定时器/取消定时
 
-* `document.cookie`：现在多数网站使用Cookie来识别用户。
+* `document.cookie`：现在多数网站使用Cookie来识别用户
 
-* `window.location`:对象用于访问当前 URL，或者导航到新的页面。
+* `window.location`:对象用于访问当前 URL，或者导航到新的页面
 
   * `hostname` ：web 主机的域名
   * `pathname` ：当前页面的路径和文件名
