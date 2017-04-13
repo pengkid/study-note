@@ -80,10 +80,11 @@ BOM 是为了操作浏览器出现的 API，window 是其的一个对象。
 
 * `window.location`:对象用于访问当前 URL，或者导航到新的页面
 
+  * `protocol` ：所使用的 web 协议（http:// 或 https://）
   * `hostname` ：web 主机的域名
   * `pathname` ：当前页面的路径和文件名
   * `port` ：web 主机的端口
-  * `protocol` ：所使用的 web 协议（http:// 或 https://）
+  * `hash` ：页面锚点，可读写
   * `href` ：当前url，对它赋值可以实现重定向
   * `reload()` ：这是一个方法，调用后会刷新当前页面
   
