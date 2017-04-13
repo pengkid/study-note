@@ -1,0 +1,75 @@
+JSON和JS对象：
+	JSON数据格式：
+		JSON 是一种基于本文传输的数据格式，在这种格式下，可以衍生出很多 JSON 数据
+		在JSON之前，有一个数据格式叫xml，现在还是广泛在用，但是JSON更加轻量，如xml需要用到很多标签
+		标签本身占据了很多空间，而JSON比较轻量，即相同数据以JSON的格式占据的带宽更小
+	JSON和JS对象的恩怨
+		JSON 跟JS对象不是同一个玩意，JSON是一种数据格式，JS对象是一个存在于内存中的实例
+		JSON数据，键值对中的键名必须使用双引号括起来，不能传递 NaN 、undefined 、函数，而JS对象却可以
+		如 ：
+
+			var obj1 = {}; // 这只是 JS 对象
+
+			var obj2 = {width:100,"height":200,'name':"rose",say:function(){console.log(this.name)}}; // 这只也是 JS 对象
+
+			// 可把这个称做：JSON 格式的 JavaScript 对象 ，简称 JSON对象
+			// 可以这么说，JSON对象是JS对象的一个子集，只要JS对象符合JSON格式，那么这个JS对象就是JSON对象
+			var obj3 = {"width":100,"height":200,"name":"rose"};
+
+			// 可把这个称做：JSON 格式的字符串，简称 JSON字符串，这是常见的 JSON 数据格式
+			var str1 = '{"width":100,"height":200,"name":"rose"}';
+
+			// 这个可叫 JSON 格式的数组，是 JSON 的稍复杂一点的形式
+			var arr = [
+			    {"width":100,"height":200,"name":"rose"},
+			    {"width":100,"height":200,"name":"rose"},
+			    {"width":100,"height":200,"name":"rose"},
+			];
+
+			// 这个可叫稍复杂一点的 JSON 格式的字符串     
+			var str2='['+  
+			    '{"width":100,"height":200,"name":"rose"},'+
+			    '{"width":100,"height":200,"name":"rose"},'+
+			    '{"width":100,"height":200,"name":"rose"},'+
+			']';
+
+		以上的都是 JSON 格式的数据
+	
+
+	JSON中的函数：
+		JSON.stringify(): 
+			把JSON对象转换成JSON字符串 {"name":"pengkid","age":18} → "{"name":"pengkid","age":18}"
+			函数接受的第一个参数 JSON.stringify(obj)，为 JSON 格式的JS对象
+				如果不是标准的JSON对象，函数会自动将其转化
+				· undefined、函数 以及 symbol 值 若出现在属性值，则取消该属性，若出现在数组里面，则转换为 null
+				· NaN、Infinity和-Infinity，不论在数组还是非数组的对象中，都被转化为null
+				· 键名没有双引号，或者是单引号，则转换为""，字符串是单引号的，会自动变成双引号
+				· 布尔值、数字、字符串的包装对象会自动转换成对应的原始值，如 new String("bala")会变成"bala"
+			函数接受的第二个参数 JSON.stringify(obj, function(key, value){} | [])，为一个匿名函数或数组
+				· 如果是函数，该函数会遍历对象的键值对，并作出相应的处理
+				· 如果是数组，则查找原对象中是否含有数组中对应的元素，有则保留，无则删除
+			函数接受的第三个参数 JSON.stringify(obj, function(key, value){}, "")，修饰符，指定缩进用的空白字符
+				· JSON.stringify({"age":10},null,"HAHAHAHA");  // "{"age":HAHAHAHA"age":10}"
+				· 是1-10的某个数字，代表用几个空白字符
+				· 是字符串的话，就用该字符串代替空格，最多取这个字符串的前10个字符
+				· 没有提供该参数 等于 设置成null 等于 设置一个小于1的数
+		JSON.parse(): 
+			把JSON字符串转换成JS标准对象 '{}' → {}  or  '{"age":10}' → {age:10}
+			函数接受的第一个参数 JSON.parse('obj')，为 JSON 格式的字符串
+				如果不是标准的JSON字符串，则会报错
+			函数接受的第二个参数 JSON.parse('obj',function(key, value){})，为一个匿名函数
+				这个函数作用在属性已经被解析但是还没返回前，将属性处理后再返回
+				· 匿名函数返回 undefined，则当前属性会删除，如果返回其他值，则返回的值会成为当前属性新的属性值
+		JSON.toString():
+			在一个JS对象上实现了toJSON方法，那么调用 JSON.stringify去序列化这个JS对象时
+			JSON.stringify会把这个对象的toJSON方法返回的值作为参数去进行序列化
+				var info={  
+				    "msg":"I Love You",
+				    "toJSON":function(){
+				        var replaceMsg=new Object();
+				        replaceMsg["msg"]="Go Die";
+				        return replaceMsg;
+				    }
+				};
+
+				JSON.stringify(info);  // '"{"msg":"Go Die"}"'
