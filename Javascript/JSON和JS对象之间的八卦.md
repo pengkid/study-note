@@ -80,18 +80,28 @@ var str2='['
 
 ### <font color="4590a3">JSON.stringify(){#index3_1}</font>
  
-			把JSON对象转换成JSON字符串 {"name":"pengkid","age":18} → "{"name":"pengkid","age":18}"
-			函数接受的第一个参数 JSON.stringify(obj)，为 JSON 格式的JS对象
-				如果不是标准的JSON对象，函数会自动将其转化
-				· undefined、函数 以及 symbol 值 若出现在属性值，则取消该属性，若出现在数组里面，则转换为 null
-				· NaN、Infinity和-Infinity，不论在数组还是非数组的对象中，都被转化为null
-				· 键名没有双引号，或者是单引号，则转换为""，字符串是单引号的，会自动变成双引号
-				· 布尔值、数字、字符串的包装对象会自动转换成对应的原始值，如 new String("bala")会变成"bala"
-			函数接受的第二个参数 JSON.stringify(obj, function(key, value){} | [])，为一个匿名函数或数组
-				· 如果是函数，该函数会遍历对象的键值对，并作出相应的处理
-				· 如果是数组，则查找原对象中是否含有数组中对应的元素，有则保留，无则删除
-			函数接受的第三个参数 JSON.stringify(obj, function(key, value){}, "")，修饰符，指定缩进用的空白字符
-				· JSON.stringify({"age":10},null,"HAHAHAHA");  // "{"age":HAHAHAHA"age":10}"
+把JSON对象转换成JSON字符串 
+{"name":"pengkid","age":18} → "{"name":"pengkid","age":18}"
+
+函数接受的第一个参数 JSON.stringify(obj)，为 JSON 格式的JS对象，如果不是标准的JSON对象，函数会自动将其转化
+
+· undefined、函数 以及 symbol 值 若出现在属性值，则取消该属性，若出现在数组里面，则转换为 null
+
+· NaN、Infinity和-Infinity，不论在数组还是非数组的对象中，都被转化为null
+
+· 键名没有双引号，或者是单引号，则转换为""，字符串是单引号的，会自动变成双引号
+
+· 布尔值、数字、字符串的包装对象会自动转换成对应的原始值，如 new String("bala")会变成"bala"
+
+函数接受的第二个参数 JSON.stringify(obj, function(key, value){} | [])，为一个匿名函数或数组
+
+· 如果是函数，该函数会遍历对象的键值对，并作出相应的处理
+
+· 如果是数组，则查找原对象中是否含有数组中对应的元素，有则保留，无则删除
+
+函数接受的第三个参数 JSON.stringify(obj, function(key, value){}, "")，修饰符，指定缩进用的空白字符
+
+JSON.stringify({"age":10},null,"HAHAHAHA");  // "{"age":HAHAHAHA"age":10}"
 				· 是1-10的某个数字，代表用几个空白字符
 				· 是字符串的话，就用该字符串代替空格，最多取这个字符串的前10个字符
 				· 没有提供该参数 等于 设置成null 等于 设置一个小于1的数
