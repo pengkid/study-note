@@ -1,9 +1,19 @@
 {
     "plugins": [
+        "sitemap",
         "sharing",
         "toggle-chapters",
+        "splitter",
+        "advanced-emoji",
+        "search",
+        "-lunr",
+        "search-jieba",
+        "theme-comscore"
     ],
     "pluginsConfig": {
+        "sitemap": {
+            "hostname": "https://github.com/pengkid/study-note"
+        },
         "sharing": {
             "all": null,
             "facebook": null,
@@ -11,6 +21,13 @@
             "twitter": null,
             "weibo": null
         }
+    },
+    "level_number": false,
+    "collapsible_menu": false,
+    "variables": {
+        "title": "前端路上的鹏仔",
+        "theme": "theme-green",
+        "copyright": "Copyright 2016-2017 note/pengkid"
     },
     "title": "前端路上的鹏仔",
     "links": {
