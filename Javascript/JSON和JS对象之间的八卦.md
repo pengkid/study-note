@@ -10,7 +10,7 @@
 
 ## <font color="4590a3">JSON数据格式{#index1}</font>
 
-JSON 是一种基于本文传输的数据格式，在这种格式下，可以衍生出很多 JSON 数据。
+JSON 是一种基于文本传输的数据格式，在这种格式下，可以衍生出很多 JSON 数据。
 
 在JSON之前，有一个数据格式叫xml，现在还是广泛在用，但是JSON更加轻量，如xml需要用到很多标签。
 
@@ -23,11 +23,11 @@ JSON 跟JS对象不是同一个玩意，JSON是一种数据格式，JS对象是�
 ### <font color="4590a3">具体区别{#index2_1}</font>
 
 
-| JSON          | JS对象        |
-| ------------- |:-------------:|
-| col 3 is      | right-aligned |
-| col 2 is      | centered      |
-| zebra stripes | are neat      |
+|| JSON          | JS对象        |
+|| ------------- |:-------------:|
+|| col 3 is      | right-aligned |
+|| col 2 is      | centered      |
+|| zebra stripes | are neat      |
 
 可以这么说，JSON对象是JS对象的一个子集，只要JS对象符合JSON格式，那么这个JS对象就是JSON对象。
 
