@@ -1,3 +1,46 @@
 {
-    "plugins": ["toggle-chapters"]
+    "plugins": [
+        "editlink",
+        "sitemap",
+        "sharing",
+        "toggle-chapters",
+        "splitter",
+        "advanced-emoji",
+        "search",
+        "-lunr",
+        "search-jieba",
+        "theme-comscore"
+    ],
+    "pluginsConfig": {
+        "editlink": {
+            "base": "https://github.com/Niefee/My-study-records/edit/master",
+            "label": "编辑本页"
+        },
+        "sitemap": {
+            "hostname": "https://github.com/pengkid/study-note"
+        },
+        "sharing": {
+            "all": null,
+            "facebook": null,
+            "google": null,
+            "twitter": null,
+            "weibo": null
+        }
+    },
+    "level_number": false,
+    "collapsible_menu": false,
+    "variables": {
+        "title": "前端路上的鹏仔",
+        "theme": "theme-green",
+        "copyright": "Copyright 2016-2017 note/pengkid"
+    },
+    "title": "前端路上的鹏仔",
+    "links": {
+        "sidebar": {
+            "Learn More": "https://github.com/pengkid"
+        },
+        "gitbook": false
+    },
+    "language" : "zh-hans",
+    "description": "这是关于前端知识的记录，从2017年2月1日开始至今，一直记录着我在前端学习方面的知识与问题。"
 }
