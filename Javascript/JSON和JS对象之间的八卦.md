@@ -5,7 +5,7 @@
 * [JSON中的函数](#index3)
   * [JSON.stringify()](#index3_1)
   * [JSON.parse()](#index3_2)
-  * [JSON.toString()](#index3_3)
+  * [JSON.toJSON()](#index3_3)
 
 
 ## <font color="4590a3">JSON数据格式{#index1}</font>
@@ -77,10 +77,18 @@ var str2='['
 
 ### <font color="4590a3">JSON.stringify(){#index3_1}</font>
  
-把JSON对象转换成JSON字符串 
-{"name":"pengkid","age":18} → "{"name":"pengkid","age":18}"
+把JSON对象转换成JSON字符串（序列化）。
 
-函数接受的第一个参数 JSON.stringify(obj)，为 JSON 格式的JS对象，如果不是标准的JSON对象，函数会自动将其转化
+#### <font color="4590a3">语法</font>
+`JSON.stringify(value[, replacer [, space]])`  
+
+##### <font color="4590a3">参数</font>
+
+* value
+
+函数接受的第一个参数为 JSON 格式的JS对象
+
+`JSON.stringify({"name":"pengkid","age":18}) → "{"name":"pengkid","age":18}"`
 
 · undefined、函数 以及 symbol 值 若出现在属性值，则取消该属性，若出现在数组里面，则转换为 null
 
@@ -90,37 +98,66 @@ var str2='['
 
 · 布尔值、数字、字符串的包装对象会自动转换成对应的原始值，如 new String("bala")会变成"bala"
 
-函数接受的第二个参数 JSON.stringify(obj, function(key, value){} | [])，为一个匿名函数或数组
+* replacer
+
+函数接受的第二个参数，为一个匿名函数或数组。
+
+`JSON.stringify(value, function(key, value){} | [])`
 
 · 如果是函数，该函数会遍历对象的键值对，并作出相应的处理
 
 · 如果是数组，则查找原对象中是否含有数组中对应的元素，有则保留，无则删除
 
-函数接受的第三个参数 JSON.stringify(obj, function(key, value){}, "")，修饰符，指定缩进用的空白字符
+* space
 
-JSON.stringify({"age":10},null,"HAHAHAHA");  // "{"age":HAHAHAHA"age":10}"
-				· 是1-10的某个数字，代表用几个空白字符
-				· 是字符串的话，就用该字符串代替空格，最多取这个字符串的前10个字符
-				· 没有提供该参数 等于 设置成null 等于 设置一个小于1的数
+函数接受的第三个参数，修饰符，指定缩进用的空白字符。
+
+`JSON.stringify({"age":10},null,"HAHAHAHA");  // "{HAHAHAHA"age":10}"
+`
+
+· 是1-10的某个数字，代表用几个空白字符
+
+· 是字符串的话，就用该字符串代替空格，最多取这个字符串的前10个字符
+
+· 没有提供该参数 等于 设置成null 等于 设置一个小于1的数
 
 ### <font color="4590a3">JSON.parse(){#index3_2}</font> 
-			把JSON字符串转换成JS标准对象 '{}' → {}  or  '{"age":10}' → {age:10}
-			函数接受的第一个参数 JSON.parse('obj')，为 JSON 格式的字符串
-				如果不是标准的JSON字符串，则会报错
-			函数接受的第二个参数 JSON.parse('obj',function(key, value){})，为一个匿名函数
-				这个函数作用在属性已经被解析但是还没返回前，将属性处理后再返回
-				· 匿名函数返回 undefined，则当前属性会删除，如果返回其他值，则返回的值会成为当前属性新的属性值
 
-### <font color="4590a3">JSON.toString(){#index3_3}</font>
-			在一个JS对象上实现了toJSON方法，那么调用 JSON.stringify去序列化这个JS对象时
-			JSON.stringify会把这个对象的toJSON方法返回的值作为参数去进行序列化
-				var info={  
-				    "msg":"I Love You",
-				    "toJSON":function(){
-				        var replaceMsg=new Object();
-				        replaceMsg["msg"]="Go Die";
-				        return replaceMsg;
-				    }
-				};
+把JSON字符串转换成JS标准对象（反序列化）。
 
-				JSON.stringify(info);  // '"{"msg":"Go Die"}"'
+#### <font color="4590a3">语法</font>
+`JSON.parse(text[, reviver])`
+
+##### <font color="4590a3">参数</font>
+
+* text
+
+函数接受的第一个参数为 JSON 格式的字符串，如果不是标准的JSON字符串，则会报错。
+
+`JSON.parse('{"age":10}') → {age:10}`
+
+* reviver
+
+函数接受的第二个参数为一个匿名函数，这个函数作用在属性已经被解析但是还没返回前，将属性处理后再返回
+
+`JSON.parse('obj',function(key, value){})`
+
+匿名函数返回 undefined，则当前属性会删除，如果返回其他值，则返回的值会成为当前属性新的属性值。
+
+### <font color="4590a3">JSON.toJSON(){#index3_3}</font>
+
+在一个JS对象上实现了toJSON方法，那么调用 JSON.stringify去序列化这个JS对象时JSON.stringify会把这个对象的toJSON方法返回的值作为参数去进行序列化
+
+```
+var info={  
+    "msg":"I Love You",
+    "toJSON":function(){
+        var replaceMsg=new Object();
+        replaceMsg["msg"]="Go Die";
+        return replaceMsg;
+    }
+};
+
+JSON.stringify(info);  // '"{"msg":"Go Die"}"'
+
+```
