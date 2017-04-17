@@ -23,16 +23,13 @@ JSON 跟JS对象不是同一个玩意，JSON是一种数据格式，JS对象是�
 ### <font color="4590a3">具体区别{#index2_1}</font>
 
 
-|| JSON          | JS对象        |
-|| ------------- |:-------------:|
-|| col 3 is      | right-aligned |
-|| col 2 is      | centered      |
-|| zebra stripes | are neat      |
+|对比|JSON          |JS对象        |
+|---------------|-------------|-------------|
+|键名| 必须加双引号 | 可以加单引号、双引号，甚至没有 |
+|属性值| 只能是数值（10制）、字符串（双引号）、布尔值、null<br/>也可以是数组或者符合要求的JS对象<br/>不能是函数、NaN、undefined、Infinity和-Infinity | 爱啥啥      |
+|数值| 前导不能为0，小数点后必须有数字 | 没有限制      |
 
 可以这么说，JSON对象是JS对象的一个子集，只要JS对象符合JSON格式，那么这个JS对象就是JSON对象。
-
-
-JSON数据，键值对中的键名必须使用双引号括起来，不能传递 NaN 、undefined 、函数，而JS对象却可以。
 
 ### <font color="4590a3">示例{#index2_2}</font>
 
