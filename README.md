@@ -13,3 +13,5 @@
 
 我有故事，你有酒吗？
 > [Github地址](https://github.com/pengkid)
+>
+> [Study Note地址](https://note.pengkid.com)
