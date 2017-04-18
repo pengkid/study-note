@@ -17,7 +17,7 @@
         "prism": {
             "lang": {
                 "flow": "javascript"
-            }
+            },
             "css": [
                 "prismjs/themes/prism-okaidia.css"
             ]
