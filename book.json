@@ -2,7 +2,6 @@
     "plugins": [
         "prism",
         "-highlight",
-        "sitemap",
         "sharing",
         "toggle-chapters",
         "splitter",
@@ -12,9 +11,6 @@
         "theme-comscore"
     ],
     "pluginsConfig": {
-        "sitemap": {
-            "hostname": "https://github.com/pengkid/study-note"
-        },
         "prism": {
             "lang": {
                 "flow": "javascript"
