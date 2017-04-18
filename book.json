@@ -20,7 +20,12 @@
             ]
         },
         "sharing": {
-            "all": [],
+            "all": [
+                "facebook",
+                "google",
+                "twitter",
+                "weibo"
+            ],
             "facebook": false,
             "google": false,
             "twitter": false,
