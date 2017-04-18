@@ -2,6 +2,7 @@
     "plugins": [
         "prism",
         "-highlight",
+        "anchors",
         "sharing",
         "toggle-chapters",
         "splitter",
