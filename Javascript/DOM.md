@@ -260,7 +260,7 @@ HTMLCollection实例对象与NodeList实例对象类似，也是节点对象的�
 	document.body.scrollLeft    //网页可见区域宽
 	document.body.scrollTop	 //网页可见区域宽
 	
-### 获取页面大小大全{index6_4}
+### 获取页面大小大全{#index6_4}
 
 	document.body.clientWidth	//网页可见区域宽
 	document.body.clientHeight   //网页可见区域高
