@@ -18,14 +18,14 @@
 * [关于 document 鲜为人知的属性和方法](#index7)
 
 
-# <font color="#4590a3">DOM API{#index}</font>
+# DOM API{#index}
 
 DOM：文档对象模型，表示一系列操作HTML或者XML文档的基础API集合。
 
 DOM树：当浏览器加载文档的时候，浏览器会根据文档结构，解析出一系列的节点对象，并由这些节点组成的一个树状结构。
 
 
-## <font color="#4590a3">DOM七大节点类型{#index1}</font>
+## DOM七大节点类型{#index1}
 	
 	文档节点(DOCUMENT_NODE)：代表整个文档，整个文档树的顶层节点
 	
