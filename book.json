@@ -20,11 +20,11 @@
             ]
         },
         "sharing": {
-            "all": null,
-            "facebook": null,
-            "google": null,
-            "twitter": null,
-            "weibo": null
+            "all": [],
+            "facebook": false,
+            "google": false,
+            "twitter": false,
+            "weibo": false
         },
         "github": {
             "url": "https://github.com/pengkid/study-note"
