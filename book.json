@@ -8,6 +8,7 @@
         "splitter",
         "search",
         "-lunr",
+        "github",
         "theme-comscore"
     ],
     "pluginsConfig": {
@@ -28,6 +29,9 @@
             "google": null,
             "twitter": null,
             "weibo": null
+        },
+        "github": {
+            "url": "https://github.com/pengkid/study-note"
         }
     },
     "links": {
