@@ -6,9 +6,8 @@
         "sharing",
         "toggle-chapters",
         "splitter",
-        "-search",
+        "search",
         "-lunr",
-        "search-pro",
         "theme-comscore"
     ],
     "pluginsConfig": {
