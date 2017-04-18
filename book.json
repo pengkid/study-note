@@ -15,12 +15,12 @@
             "hostname": "https://github.com/pengkid/study-note"
         },
         "prism": {
-             "lang": {
+            "lang": {
                 "flow": "javascript"
             }
-             "css": [
-                  "prismjs/themes/prism-okaidia.css"
-             ] 
+            "css": [
+                "prismjs/themes/prism-okaidia.css"
+            ] 
         },
         "sharing": {
             "all": null,
