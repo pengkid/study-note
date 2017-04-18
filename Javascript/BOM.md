@@ -4,7 +4,7 @@
 * [BOM](#index4)
   * [window下的全局变量](#index4_1)
 
-## <font color="4590a3">概述{#index1}</font>
+## 概述{#index1}
 
 javascript所有对象都在`window`这个**顶层对象**之中。
 
@@ -16,7 +16,7 @@ window.a  // 1
 
 > 所有未声明就赋值的变量都自动变成window对象的属性。
 
-## <font color="4590a3">窗口{#index2}</font>
+## 窗口{#index2}
 
 * window.screenX，window.screenY
 
@@ -40,7 +40,7 @@ window.pageXOffset属性返回页面的水平滚动距离，window.pageYOffset�
 
 `screen.colorDepth`属性返回屏幕的颜色深度，一般为16（表示16-bit）或24（表示24-bit）。
 
-## <font color="4590a3">navigator对象{#index3}</font>
+## navigator对象{#index3}
 
 * navigator.userAgent属性
 
@@ -51,8 +51,7 @@ window.pageXOffset属性返回页面的水平滚动距离，window.pageYOffset�
 > "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36"
 
 
-
-## <font color="4590a3">BOM{#index4}</font>
+## BOM{#index4}
 
 window 也是 BOM 的一个对象，除去编程意义上的“兜底对象”之外，通过这个对象可以获取窗口位置、确定窗口大小、弹出对话框等等。例如我要关闭当前窗口：
 
@@ -66,7 +65,7 @@ DOM 是为了操作文档出现的 API，document 是其的一个对象；
 BOM 是为了操作浏览器出现的 API，window 是其的一个对象。
 
 
-### <font color="4590a3">window下的全局变量{#index4_1}</font>
+### window下的全局变量{#index4_1}
 
 * `innerHeight/innerWidth`：浏览器窗口内部高度/宽度
 
