@@ -13,7 +13,7 @@
     "pluginsConfig": {
         "prism": {
             "css": [
-                "prismjs/themes/prism-okaidia.css"
+                "syntax-highlighting/assets/css/prism/prism-base16-ocean.dark.css"
             ]
         },
         "sharing": {
