@@ -21,8 +21,6 @@
             "weibo": null
         }
     },
-    "level_number": false,
-    "collapsible_menu": false,
     "variables": {
         "title": "前端路上的鹏仔",
         "theme": "theme-green",
