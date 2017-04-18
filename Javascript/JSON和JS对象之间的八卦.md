@@ -8,7 +8,7 @@
   * [JSON.toJSON()](#index3_3)
 
 
-## <font color="4590a3">JSON数据格式{#index1}</font>
+## JSON数据格式{#index1}
 
 JSON 是一种基于文本传输的数据格式，在这种格式下，可以衍生出很多 JSON 数据。
 
@@ -16,11 +16,11 @@ JSON 是一种基于文本传输的数据格式，在这种格式下，可以衍
 
 标签本身占据了很多空间，而JSON比较轻量，即相同数据以JSON的格式占据的带宽更小。
 
-## <font color="4590a3">JSON和JS对象的八卦{#index2}</font>
+## JSON和JS对象的八卦{#index2}
 
 JSON 跟JS对象不是同一个玩意，JSON是一种数据格式，JS对象是一个存在于内存中的实例。
 
-### <font color="4590a3">具体区别{#index2_1}</font>
+### <font color="4590a3">具体区别{#index2_1}
 
 
 |对比|JSON          |JS对象        |
