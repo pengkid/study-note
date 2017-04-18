@@ -8,7 +8,7 @@
   * [JSON.toJSON()](#index3_3)
 
 
-## <font color="4590a3">JSON数据格式{#index1}</font>
+## JSON数据格式{#index1}
 
 JSON 是一种基于文本传输的数据格式，在这种格式下，可以衍生出很多 JSON 数据。
 
@@ -16,11 +16,11 @@ JSON 是一种基于文本传输的数据格式，在这种格式下，可以衍
 
 标签本身占据了很多空间，而JSON比较轻量，即相同数据以JSON的格式占据的带宽更小。
 
-## <font color="4590a3">JSON和JS对象的八卦{#index2}</font>
+## JSON和JS对象的八卦{#index2}
 
 JSON 跟JS对象不是同一个玩意，JSON是一种数据格式，JS对象是一个存在于内存中的实例。
 
-### <font color="4590a3">具体区别{#index2_1}</font>
+### 具体区别{#index2_1}
 
 
 |对比|JSON          |JS对象        |
@@ -31,7 +31,7 @@ JSON 跟JS对象不是同一个玩意，JSON是一种数据格式，JS对象是�
 
 可以这么说，JSON对象是JS对象的一个子集，只要JS对象符合JSON格式，那么这个JS对象就是JSON对象。
 
-### <font color="4590a3">示例{#index2_2}</font>
+### 示例{#index2_2}
 
 ```
 // 这只是 JS 对象
@@ -73,16 +73,16 @@ var str2='['
 ```
 
 
-## <font color="4590a3">JSON中的函数{#index3}</font>
+## JSON中的函数{#index3}
 
-### <font color="4590a3">JSON.stringify(){#index3_1}</font>
+### JSON.stringify(){#index3_1}
  
 把JSON对象转换成JSON字符串（序列化）。
 
-#### <font color="4590a3">语法</font>
+#### 语法
 `JSON.stringify(value[, replacer [, space]])`  
 
-##### <font color="4590a3">参数</font>
+##### 参数
 
 * value
 
@@ -121,14 +121,14 @@ var str2='['
 
 · 没有提供该参数 等于 设置成null 等于 设置一个小于1的数
 
-### <font color="4590a3">JSON.parse(){#index3_2}</font> 
+### JSON.parse(){#index3_2}
 
 把JSON字符串转换成JS标准对象（反序列化）。
 
-#### <font color="4590a3">语法</font>
+#### 语法
 `JSON.parse(text[, reviver])`
 
-##### <font color="4590a3">参数</font>
+##### 参数
 
 * text
 
@@ -144,7 +144,7 @@ var str2='['
 
 匿名函数返回 undefined，则当前属性会删除，如果返回其他值，则返回的值会成为当前属性新的属性值。
 
-### <font color="4590a3">JSON.toJSON(){#index3_3}</font>
+### JSON.toJSON(){#index3_3}
 
 在一个JS对象上实现了toJSON方法，那么调用 JSON.stringify去序列化这个JS对象时JSON.stringify会把这个对象的toJSON方法返回的值作为参数去进行序列化
 
