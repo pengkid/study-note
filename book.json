@@ -6,7 +6,6 @@
         "splitter",
         "search",
         "-lunr",
-        "search-jieba",
         "theme-comscore"
     ],
     "pluginsConfig": {
@@ -28,12 +27,14 @@
         "theme": "theme-green",
         "copyright": "Copyright 2016-2017 note/pengkid"
     },
-    "title": "前端路上的鹏仔",
     "links": {
         "sidebar": {
             "Learn More": "https://github.com/pengkid"
         },
         "gitbook": false
     },
-    "description": "这是关于前端知识的记录，从2017年2月1日开始至今，一直记录着我在前端学习方面的知识与问题。"
+    "title": "前端路上的鹏仔",
+    "author" : "pengkid",
+    "description": "这是关于前端知识的记录，从2017年2月1日开始至今，一直记录着我在前端学习方面的知识与问题。",
+    "language" : "zh-hans"
 }
