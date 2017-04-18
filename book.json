@@ -6,7 +6,6 @@
         "toggle-chapters",
         "splitter",
         "search",
-        "-lunr",
         "github",
         "theme-comscore"
     ],
