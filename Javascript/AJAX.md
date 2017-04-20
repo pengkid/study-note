@@ -13,7 +13,7 @@ AJAX（异步的javascript和xml）
 ```
 //创建xhr通信对象
 var request;
-
+//兼容性问题
 if(window.XMLHttpRequest){
     request = new XMLHttpRequest();
 }
