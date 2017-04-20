@@ -47,7 +47,7 @@ request.open(method, url [, boolean]);  //比喻：在地址栏输入地址
 //
 
 ```
-xhr.send(); //提交
+request.send();  //提交请求
 ```
 
 //等待服务器返回内容
