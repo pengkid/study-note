@@ -22,12 +22,10 @@ else {
 }
 //配置常量
 const option = {
-    url: ,
-    data:{
-    	//
-    },
-    dataType: "json",
-    method: GET || POST,
+    url: ,               //请求地址
+    data:{ },            //请求数据 
+    dataType: "json",    //数据类型
+    method: GET || POST, //请求方法
     success: function(res){},
     fail: function(res){}
 } || {}
