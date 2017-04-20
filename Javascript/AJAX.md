@@ -15,26 +15,15 @@
 
 
 ## XMLHttpRequest{#index2}
-	XMLHttpRequest对象
 
-		兼容所有浏览器，创建XHR对象
+```
+兼容所有浏览器，创建XHR对象
 
-		var requeset;
-
-		if(window.XMLHttpRequest){
-
-			request = new XMLHttpRequest();
-
-		}
-
-		else{
-
-			request = new ActiveXObject();
-
-		}
+if(window.XMLHttpRequest) var request = new XMLHttpRequest();
+else request = new ActiveXObject();
 
 
-
+```
 	HTTP请求
 
 		HTTP是计算机网络通信的一种协议，它是无状态协议（客户端请求，服务端应答）
@@ -106,27 +95,3 @@
 			5XX：服务器错误，表示服务器不能完成对请求的处理，如：500
 
 
-
-
-
-	url 统一资源定位器
-
-		俗称“网址”，“href”
-
-		如：http：//www.imooc.com：8080/list.php?courseid=8&chapterid=86#mediaid118
-
-
-
-		http: 协议 protocol
-
-		www.imooc.com：8080：域名 host，包含了host和port
-
-		www.imooc.com：主机名（服务器） hostname
-
-		8080：对口号 port
-
-		list.php：路径 pathname
-
-		？courseid=8&chapterid=86：查询 search | query
-
-		#mediaid118：锚 hash
