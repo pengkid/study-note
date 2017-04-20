@@ -18,7 +18,7 @@ if(window.XMLHttpRequest){
     request = new XMLHttpRequest();
 }
 else {
-    request = xhr = new ActiveXObject('Microsoft.XMLHTTP');
+    request = new ActiveXObject('Microsoft.XMLHTTP');
 }
 //配置常量
 const option = {
