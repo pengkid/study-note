@@ -29,7 +29,6 @@ if(window.XMLHttpRequest){
 }
 else {
     var request = xhr = new ActiveXObject('Microsoft.XMLHTTP');
-
 }
 
 .onreadystatechange = function () {
