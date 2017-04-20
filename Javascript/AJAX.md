@@ -14,7 +14,7 @@
 意味着 客户端和服务端 互相之间的操作不会发生堵塞
 
 
-
+## XMLHttpRequest{#index2}
 	XMLHttpRequest对象
 
 		兼容所有浏览器，创建XHR对象
