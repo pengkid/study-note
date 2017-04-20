@@ -38,8 +38,8 @@ const option = {
 
 #### get请求
 ```
-//比喻：在地址栏输入地址
-request.open('get','text1.txt',true);
+request.open('get','text1.txt',true); //比喻：在地址栏输入地址
+```
 参数
 1.打开方式
 2.地址
@@ -64,9 +64,6 @@ request.onreadystatechange = function () {
                     }
                 }
 
-
-
-```
 readyState取值：
 
 0：请求未初始化（还没有调用 open()）。
