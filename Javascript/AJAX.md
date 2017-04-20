@@ -20,6 +20,10 @@
 兼容所有浏览器，创建XHR对象
 
 var option = {
+
+    data:{
+    	//
+    }
     method: GET || POST,
 }
 
