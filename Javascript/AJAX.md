@@ -39,16 +39,13 @@ const option = {
 #### get请求
 ```
 request.open(method, url [, boolean]);  //比喻：在地址栏输入地址
+request.send();  //提交请求
+
 ```
 ##### 参数
 * `method` : 请求方法，get请求则为 "get"
 * `url` : 请求地址，如果URL含有中文，会出现乱码，要使用`encodeURI`编码URL
 * `boolean` ： 是否异步请求，默认是 false
-
-
-```
-request.send();  //提交请求
-```
 
 //等待服务器返回内容
 request.onreadystatechange = function () {
