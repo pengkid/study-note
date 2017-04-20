@@ -11,6 +11,7 @@ AJAX（异步的javascript和xml）
 ### 新建XMLHttpRequest对象
 
 ```
+//创建xhr通信对象
 var request;
 
 if(window.XMLHttpRequest){
