@@ -1,4 +1,4 @@
- 
+  
 ## 概述
 
 AJAX（异步的javascript和xml）
@@ -38,7 +38,7 @@ const option = {
 
 #### get请求
 ```
-request.open(method, url [, boolean]); //比喻：在地址栏输入地址
+request.open(method, url [, boolean]);  //比喻：在地址栏输入地址
 ```
 ##### 参数
 * `method` : 请求方法，get请求则为 "get"
