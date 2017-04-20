@@ -39,7 +39,7 @@ const option = {
 #### get请求
 ```
 //比喻：在地址栏输入地址
-request.open('get','1.txt',true);
+request.open('get','text1.txt',true);
 参数
 1.打开方式
 2.地址
