@@ -20,10 +20,11 @@
 兼容所有浏览器，创建XHR对象
 
 var option = {
-
+    url: ,
     data:{
     	//
-    }
+    },
+    dataType: "json",
     method: GET || POST,
     success: function(res){},
     fail: function(res){}
