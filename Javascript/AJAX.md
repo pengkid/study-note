@@ -11,7 +11,13 @@ AJAX（异步的javascript和xml）
 ### 新建XMLHttpRequest对象
 
 ```
-兼容所有浏览器，创建XHR对象
+var request;
+if(window.XMLHttpRequest){
+    request = new XMLHttpRequest();
+}
+else {
+    request = xhr = new ActiveXObject('Microsoft.XMLHTTP');
+}
 
 var option = {
     url: ,
@@ -24,12 +30,7 @@ var option = {
     fail: function(res){}
 } || {}
 
-if(window.XMLHttpRequest){
-    var request = new XMLHttpRequest();
-}
-else {
-    var request = xhr = new ActiveXObject('Microsoft.XMLHTTP');
-}
+
 
 .onreadystatechange = function () {
     if (xhr.readyState == 4) {
@@ -53,8 +54,6 @@ else {
 var xhr = new XMLHttpRequest();
 //比喻：在地址栏输入地址
 xhr.open('get','1.txt',true);
-
-
 参数
 1.打开方式
 2.地址
