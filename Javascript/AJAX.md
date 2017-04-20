@@ -20,8 +20,8 @@ if(window.XMLHttpRequest){
 else {
     request = xhr = new ActiveXObject('Microsoft.XMLHTTP');
 }
-
-var option = {
+//配置常量
+const option = {
     url: ,
     data:{
     	//
