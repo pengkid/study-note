@@ -46,8 +46,9 @@ request.open(method, url [, boolean]);  //比喻：在地址栏输入地址
 * `boolean` ： 是否异步请求，默认是 false
 //
 
-//提交
-xhr.send();
+```
+xhr.send(); //提交
+```
 
 //等待服务器返回内容
 request.onreadystatechange = function () {
