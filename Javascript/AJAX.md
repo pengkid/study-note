@@ -19,6 +19,10 @@
 ```
 兼容所有浏览器，创建XHR对象
 
+var option = {
+    method: GET || POST,
+}
+
 if(window.XMLHttpRequest) var request = new XMLHttpRequest();
 else request = new ActiveXObject();
 
