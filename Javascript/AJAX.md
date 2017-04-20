@@ -38,13 +38,13 @@ const option = {
 
 #### get请求
 ```
-request.open('get','text1.txt',true); //比喻：在地址栏输入地址
+request.open(method,url,true); //比喻：在地址栏输入地址
 ```
 ##### 参数
-* `get` : 请求方法
-* `text1.txt` : 请求地址
+* `method` : 请求方法，get请求则为 "get"
+* `url` : 请求地址，如果URL含有中文，会出现乱码，要使用`encodeURI`编码URL。
 * `true` ： 是否异步，默认是 false
-//如果URL含有中文，会出现乱码，要使用`encodeURI`编码URL。
+//
 
 //提交
 xhr.send();
