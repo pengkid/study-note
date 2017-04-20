@@ -12,6 +12,7 @@ AJAX（异步的javascript和xml）
 
 ```
 var request;
+
 if(window.XMLHttpRequest){
     request = new XMLHttpRequest();
 }
