@@ -33,7 +33,17 @@ var option = {
 if(window.XMLHttpRequest) var request = new XMLHttpRequest();
 else var request = new ActiveXObject();
 
-
+.onreadystatechange = function () {
+    if (xhr.readyState == 4) {
+	var status = xhr.status;
+	if (status >= 200 && status < 300) {
+		options.success && options.success(xhr.responseText, xhr.responseXML);
+      } 
+	else {
+                            options.fail && options.fail(status);
+                        }
+                    }
+                }
 
 ```
 	HTTP请求
