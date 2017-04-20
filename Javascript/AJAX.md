@@ -13,6 +13,7 @@ AJAX（异步的javascript和xml）
 ```
 //创建xhr通信对象
 var request;
+
 //兼容性问题
 if(window.XMLHttpRequest){
     request = new XMLHttpRequest();
@@ -20,6 +21,7 @@ if(window.XMLHttpRequest){
 else {
     request = new ActiveXObject('Microsoft.XMLHTTP');
 }
+
 //配置常量
 const option = {
     url: ,                       //请求地址
@@ -36,10 +38,8 @@ const option = {
 
 #### get请求
 ```
-//比喻：打开浏览器
-var xhr = new XMLHttpRequest();
 //比喻：在地址栏输入地址
-xhr.open('get','1.txt',true);
+request.open('get','1.txt',true);
 参数
 1.打开方式
 2.地址
