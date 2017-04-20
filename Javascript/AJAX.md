@@ -35,7 +35,7 @@ const option = {
 ### 新建服务器
 
 #### get请求
-
+```
 //比喻：打开浏览器
 var xhr = new XMLHttpRequest();
 //比喻：在地址栏输入地址
@@ -52,11 +52,21 @@ xhr.open('get','1.txt',true);
 xhr.send();
 
 //等待服务器返回内容
-xhr.onreadystatechange = function() {
+request.onreadystatechange = function () {
+    if (xhr.readyState == 4) {
+	var status = xhr.status;
+	if (status >= 200 && status < 300) {
+		options.success && options.success(xhr.responseText, xhr.responseXML);
+      } 
+	else {
+                            options.fail && options.fail(status);
+                        }
+                    }
+                }
 
-	if ( xhr.readyState == 4 ) {
-		alert( xhr.responseText );
-	}
+
+
+```
 readyState取值：
 
 0：请求未初始化（还没有调用 open()）。
