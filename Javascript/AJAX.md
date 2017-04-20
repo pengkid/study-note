@@ -25,7 +25,8 @@ var option = {
     	//
     }
     method: GET || POST,
-    
+    success: function(res){},
+    fail: function(res){}
 }
 
 if(window.XMLHttpRequest) var request = new XMLHttpRequest();
