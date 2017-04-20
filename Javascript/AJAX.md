@@ -42,8 +42,8 @@ request.open(method,url,true); //比喻：在地址栏输入地址
 ```
 ##### 参数
 * `method` : 请求方法，get请求则为 "get"
-* `url` : 请求地址，如果URL含有中文，会出现乱码，要使用`encodeURI`编码URL。
-* `true` ： 是否异步，默认是 false
+* `url` : 请求地址，如果URL含有中文，会出现乱码，要使用`encodeURI`编码URL
+* `true` ： 是否异步请求，默认是 false
 //
 
 //提交
