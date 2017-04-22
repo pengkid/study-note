@@ -60,67 +60,35 @@ xhr.send('username=pengkid&age=18'); //请求参数写在send方法中
 
 
 ### 等待服务器返回内容
+
+### 监听通信对象的状态码
 ```
 request.onreadystatechange = function () {
-    if (xhr.readyState == 4) {
-        var status = xhr.status;
+    if (request.readyState == 4) {
+        var status = request.status;
 	if (status >= 200 && status < 300) {
-	    options.success && options.success(xhr.responseText);
+	    options.success && options.success(request.responseText);
 	} 
 	else options.fail && options.fail(status);
     }
 }
 ```
 
-readyState取值：
+### readyState取值
 
 0：请求未初始化（还没有调用 open()）。
 1：请求已经建立，但是还没有发送（还没有调用 send()）。
 2：请求已发送，正在处理中（通常现在可以从响应中获取内容头）。
 3：请求在处理中；通常响应中已有部分数据可用了，但是服务器还没有完成响应的生成。
-4：响应已完成；您可以获取并使用服务器的响应了。
+4：请求完毕且响应已完成；您可以获取并使用服务器的响应了。
 从发送请求到对后端的返回的数据进行处理的状态值变化。 但如果没有相应的文件，也有错误信息返回，这是状态值也是一样，所有还需要加入status：
 
-status : 服务器状态，http状态码
-status == 200
-返回的是字符串，使用JSON.parse()把字符串转换为json对象。
+### status服务器状态
 
-JSON.stringify()可以把一个对象转换成字符串。
+`status == 200 //服务器响应成功 `
 
-使用JSON.parse()、JSON.stringify()需严格遵守JSON规范，如属性都需用双引号引起来
+`request.responseText //服务器响应数据`
 
-
-
-## JSONP
-
-跨域：跨域名
-
-一个域名下的文件去请求了和他不一样的域名下的资源文件，那么就会产生跨域请求
-
-这是浏览器的一个安全策略。
-
-但可以通过后端请求，解决这个问题。PHP、Nodejs等不受限制。
-
-首先在js文件创建一个函数fn(),然后后端返回一个包含参数的执行函数，函数就会自动运行。
-```
-//Js文件
-<script>
-    function fn(data) {
-        console.log(data)
-    }
-</script>
-<script src="2.js"></script>
+返回的是字符串，可以用JSON.parse()把字符串转换为json对象。
 
 
-//后端返回，以PHP为例
-
-$arr1 = array('111111','22222222','33333333','4444444','555555555555555555555');
-echo 'fn('.json_encode($arr1).')'
-为防止页面加载就运行，可以使用动态添加script标签，然后才会运行。
-
-oBtn1.onclick = function() {
-	var oScript = document.createElement('script');
-	oScript.src = 'getData.php';
-	document.body.appendChild(oScript);
-}
-````
