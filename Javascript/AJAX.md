@@ -53,36 +53,24 @@ xhr.open('post', url [, boolean]);
 xhr.setRequestHeader('content-type', 'application/x-www-form-urlencoded');  //申明发送的数据类型，post没有缓存问题，无需编码
 xhr.send('username=pengkid&age=18'); //请求参数写在send方法中
 ```
-### 错误处理
-```
-try、catch、throw
+##### 参数
+* `method` : 请求方法，post请求则为 "post"
+* `url` : 请求地址，无须写请求参数
+* `boolean` ： 是否异步请求，默认是 false
 
-//var a=12;
-try {
-    //代码尝试执行这个块中的内容,如果有错误，则会执行catch{}，	并且传入错误信息参数
-    console.log(a);
-    //自己主动抛出错误，但参数接受的是第一个错误。
-    throw new Error('错了错了');
-} catch (e) {
-    console.log("哈哈哈");
-    console.log(e)
-}
-console.log('结束了。。。')
-```
 
-##
-//等待服务器返回内容
+### 等待服务器返回内容
+```
 request.onreadystatechange = function () {
     if (xhr.readyState == 4) {
-	var status = xhr.status;
+        var status = xhr.status;
 	if (status >= 200 && status < 300) {
-		options.success && options.success(xhr.responseText, xhr.responseXML);
-      } 
-	else {
-                            options.fail && options.fail(status);
-                        }
-                    }
-                }
+	    options.success && options.success(xhr.responseText);
+	} 
+	else options.fail && options.fail(status);
+    }
+}
+```
 
 readyState取值：
 
