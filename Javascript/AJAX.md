@@ -11,7 +11,7 @@ AJAX（异步的javascript和xml）
 ### 新建XMLHttpRequest对象
 
 ```
-//创建xhr通信对象
+//创建通信对象
 var request;
 
 //兼容性问题
@@ -23,7 +23,7 @@ else {
 }
 
 //配置常量
-const option = {
+const options = {
     url: ,                       //请求地址
     data:{ },                    //请求数据 
     dataType: "json",            //数据类型
