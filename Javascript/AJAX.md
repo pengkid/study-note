@@ -44,14 +44,14 @@ request.send();  //提交请求，比喻：按了一下回车
 ```
 ##### 参数
 * `method` : 请求方法，get请求则为 "get"
-* `url` : 请求地址，如果URL含有中文，会出现乱码，要使用`encodeURI`编码URL
+* `url` : 请求地址，请求参数写在`?`后面，如果URL含有中文，会出现乱码，要使用`encodeURI`编码URL
 * `boolean` ： 是否异步请求，默认是 false
 
 #### post请求
 ```
-xhr.open('post',url [, boolean]);
+xhr.open('post', url [, boolean]);
 xhr.setRequestHeader('content-type', 'application/x-www-form-urlencoded');  //申明发送的数据类型，post没有缓存问题，无需编码
-xhr.send('username=刘伟&age=30');
+xhr.send('username=pengkid&age=18'); //请求参数写在send方法中
 ```
 ### 错误处理
 ```
