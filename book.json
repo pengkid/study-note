@@ -11,6 +11,11 @@
         "theme-comscore"
     ],
     "pluginsConfig": {
+        "prism": {
+            "css": [
+                "prismjs/themes/prism-okaidia.css"
+              ]
+        },
         "sharing": {
             "all": [
                 "facebook",
