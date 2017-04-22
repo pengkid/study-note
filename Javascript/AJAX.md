@@ -61,7 +61,7 @@ xhr.send('username=pengkid&age=18'); //请求参数写在send方法中
 
 ### 等待服务器返回内容
 
-### 监听通信对象的状态码
+#### 监听通信对象的状态码
 ```
 request.onreadystatechange = function () {
     if (request.readyState == 4) {
@@ -74,7 +74,7 @@ request.onreadystatechange = function () {
 }
 ```
 
-### readyState取值
+#### readyState取值
 
 0：请求未初始化（还没有调用 open()）。
 1：请求已经建立，但是还没有发送（还没有调用 send()）。
@@ -83,7 +83,7 @@ request.onreadystatechange = function () {
 4：请求完毕且响应已完成；您可以获取并使用服务器的响应了。
 从发送请求到对后端的返回的数据进行处理的状态值变化。 但如果没有相应的文件，也有错误信息返回，这是状态值也是一样，所有还需要加入status：
 
-### status服务器状态
+#### status服务器状态
 
 `status == 200 //服务器响应成功 `
 
