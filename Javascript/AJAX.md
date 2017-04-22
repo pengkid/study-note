@@ -39,7 +39,7 @@ const options = {
 #### get请求
 ```
 request.open(method, url [, boolean]);  //比喻：在地址栏输入地址
-request.send();  //提交请求
+request.send();  //提交请求，比喻：按了一下回车
 
 ```
 ##### 参数
