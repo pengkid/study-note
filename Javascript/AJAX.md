@@ -38,7 +38,7 @@ const options = {
 
 #### get请求
 ```
-request.open(method, url [, boolean]);  //比喻：在地址栏输入地址
+request.open('get', url [, boolean]);  //比喻：在地址栏输入地址
 request.send();  //提交请求，比喻：按了一下回车
 
 ```
@@ -50,11 +50,7 @@ request.send();  //提交请求，比喻：按了一下回车
 #### post请求
 ```
 xhr.open('post','2.post.php',true);
-//post方式，数据放在send()里面作为参数传递
-xhr.setRequestHeader('content-type', 'application/x-www-form-urlencoded');
-//申明发送的数据类型
-//post没有缓存问题
-//无需编码
+xhr.setRequestHeader('content-type', 'application/x-www-form-urlencoded');  //申明发送的数据类型，post没有缓存问题，无需编码
 xhr.send('username=刘伟&age=30');
 ```
 ### 错误处理
