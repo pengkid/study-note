@@ -8,19 +8,19 @@ DOM树：当浏览器加载文档的时候，浏览器会根据文档结构，�
 
 ## DOM七大节点类型
 	
-	文档节点(DOCUMENT_NODE)：代表整个文档，整个文档树的顶层节点
+* 文档节点(DOCUMENT_NODE)：代表整个文档，整个文档树的顶层节点
 	
-	文档类型节点(DOCUMENT_TYPE_NODE)：代表文档的类型，如<!DOCTYPE html>
+* 文档类型节点(DOCUMENT_TYPE_NODE)：代表文档的类型，如<!DOCTYPE html>
 
-	元素节点(ELEMENT_NODE)：代表文档中的各个元素
+* 元素节点(ELEMENT_NODE)：代表文档中的各个元素
 
-	属性节点(ATTRIBUTE_NODE)：代表元素的属性
+* 属性节点(ATTRIBUTE_NODE)：代表元素的属性
 
-	文本节点(TEXT_NODE)：代表标签与标签或者标签包含的文本
+* 文本节点(TEXT_NODE)：代表标签与标签或者标签包含的文本
 
-	注释节点(COMMENT_NODE)：代表文档中的注释
+* 注释节点(COMMENT_NODE)：代表文档中的注释
 
-	文档片段节点(DOCUMENT_FRAGMENT_NODE)：代表文档的片段
+* 文档片段节点(DOCUMENT_FRAGMENT_NODE)：代表文档的片段
 
 >DocumentFragment是一种特殊的Node，它可以作为其他节点的一个临时容器，使得一组节点被当做一个节点看待。其次，它独立的而不是文档的一部分，所以它的parentNode总是为null，但类似ElementNode，它可以有任意多的子节点，也可以使用appendChild()等方法。
 
