@@ -78,7 +78,7 @@ JSON.stringify()可以把一个对象转换成字符串。
 使用JSON.parse()、JSON.stringify()需严格遵守JSON规范，如属性都需用双引号引起来
 
 #### post请求
-
+```
 xhr.open('post','2.post.php',true);
 //post方式，数据放在send()里面作为参数传递
 xhr.setRequestHeader('content-type', 'application/x-www-form-urlencoded');
@@ -86,9 +86,9 @@ xhr.setRequestHeader('content-type', 'application/x-www-form-urlencoded');
 //post没有缓存问题
 //无需编码
 xhr.send('username=刘伟&age=30');
-
+```
 ### 错误处理
-
+```
 try、catch、throw
 
 //var a=12;
@@ -102,7 +102,7 @@ try {
     console.log(e)
 }
 console.log('结束了。。。')
-
+```
 
 ## JSONP
 
@@ -115,7 +115,7 @@ console.log('结束了。。。')
 但可以通过后端请求，解决这个问题。PHP、Nodejs等不受限制。
 
 首先在js文件创建一个函数fn(),然后后端返回一个包含参数的执行函数，函数就会自动运行。
-
+```
 //Js文件
 <script>
     function fn(data) {
@@ -136,3 +136,4 @@ oBtn1.onclick = function() {
 	oScript.src = 'getData.php';
 	document.body.appendChild(oScript);
 }
+````
