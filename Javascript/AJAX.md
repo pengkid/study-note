@@ -47,6 +47,34 @@ request.send();  //提交请求，比喻：按了一下回车
 * `url` : 请求地址，如果URL含有中文，会出现乱码，要使用`encodeURI`编码URL
 * `boolean` ： 是否异步请求，默认是 false
 
+#### post请求
+```
+xhr.open('post','2.post.php',true);
+//post方式，数据放在send()里面作为参数传递
+xhr.setRequestHeader('content-type', 'application/x-www-form-urlencoded');
+//申明发送的数据类型
+//post没有缓存问题
+//无需编码
+xhr.send('username=刘伟&age=30');
+```
+### 错误处理
+```
+try、catch、throw
+
+//var a=12;
+try {
+    //代码尝试执行这个块中的内容,如果有错误，则会执行catch{}，	并且传入错误信息参数
+    console.log(a);
+    //自己主动抛出错误，但参数接受的是第一个错误。
+    throw new Error('错了错了');
+} catch (e) {
+    console.log("哈哈哈");
+    console.log(e)
+}
+console.log('结束了。。。')
+```
+
+##
 //等待服务器返回内容
 request.onreadystatechange = function () {
     if (xhr.readyState == 4) {
@@ -77,32 +105,7 @@ JSON.stringify()可以把一个对象转换成字符串。
 
 使用JSON.parse()、JSON.stringify()需严格遵守JSON规范，如属性都需用双引号引起来
 
-#### post请求
-```
-xhr.open('post','2.post.php',true);
-//post方式，数据放在send()里面作为参数传递
-xhr.setRequestHeader('content-type', 'application/x-www-form-urlencoded');
-//申明发送的数据类型
-//post没有缓存问题
-//无需编码
-xhr.send('username=刘伟&age=30');
-```
-### 错误处理
-```
-try、catch、throw
 
-//var a=12;
-try {
-    //代码尝试执行这个块中的内容,如果有错误，则会执行catch{}，	并且传入错误信息参数
-    console.log(a);
-    //自己主动抛出错误，但参数接受的是第一个错误。
-    throw new Error('错了错了');
-} catch (e) {
-    console.log("哈哈哈");
-    console.log(e)
-}
-console.log('结束了。。。')
-```
 
 ## JSONP
 
