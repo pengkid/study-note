@@ -28,8 +28,8 @@ const options = {
     data:{ },                    //请求数据 
     dataType: "json",            //数据类型
     method: GET || POST,         //请求方法
-    success: function(res){},    //成功函数
-    fail: function(res){}        //失败函数
+    success: function(res){//代码},    //成功函数
+    fail: function(res){//代码}        //失败函数
 } || {}
 
 ```
