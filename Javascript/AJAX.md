@@ -49,7 +49,7 @@ request.send();  //提交请求，比喻：按了一下回车
 
 #### post请求
 ```
-xhr.open('post','2.post.php',true);
+xhr.open('post',url [, boolean]);
 xhr.setRequestHeader('content-type', 'application/x-www-form-urlencoded');  //申明发送的数据类型，post没有缓存问题，无需编码
 xhr.send('username=刘伟&age=30');
 ```
