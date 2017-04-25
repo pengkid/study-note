@@ -81,7 +81,7 @@ request.onreadystatechange = function () {
 2：请求已发送，正在处理中（通常现在可以从响应中获取内容头）。
 3：请求在处理中；通常响应中已有部分数据可用了，但是服务器还没有完成响应的生成。
 4：请求完毕且响应已完成；您可以获取并使用服务器的响应了。
-从发送请求到对后端的返回的数据进行处理的状态值变化。 但如果没有相应的文件，也有错误信息返回，这是状态值也是一样，所有还需要加入status：
+从发送请求到对后端的返回的数据进行处理的状态值变化。 但如果没有相应的文件，也有错误信息返回，这是状态值也是一样，所有还需要加入status。
 
 #### status服务器状态
 
@@ -93,4 +93,35 @@ request.onreadystatechange = function () {
 
 
 ## Jquery 的 AJAX封装
+
+```
+$.ajax({
+    url:'/comm/test1.php',
+    type:'POST', //GET
+    async:true,    //或false,是否异步
+    data:{
+        name:'yang',age:25
+    },
+    timeout:5000,    //超时时间
+    dataType:'json',    //返回的数据格式：json/xml/html/script/jsonp/text
+    beforeSend:function(xhr){
+        console.log(xhr)
+        console.log('发送前')
+    },
+    success:function(data,textStatus,jqXHR){
+        console.log(data)
+        console.log(textStatus)
+        console.log(jqXHR)
+    },
+    error:function(xhr,textStatus){
+        console.log('错误')
+        console.log(xhr)
+        console.log(textStatus)
+    },
+    complete:function(){
+        console.log('结束')
+    }
+})
+```
+
 
