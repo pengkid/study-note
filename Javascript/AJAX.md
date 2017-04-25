@@ -89,6 +89,8 @@ request.onreadystatechange = function () {
 
 `request.responseText //服务器响应数据`
 
-返回的是字符串，可以用JSON.parse()把字符串转换为json对象。
+返回的是json字符串，可以用JSON.parse()把字符串转换为json对象。
 
+
+## Jquery 的 AJAX封装
 
