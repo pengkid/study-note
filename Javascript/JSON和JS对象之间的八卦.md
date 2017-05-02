@@ -25,7 +25,7 @@ JSON 跟JS对象不是同一个玩意，JSON是一种数据格式，JS对象是�
 
 ### 示例
 
-```
+```js
 // 这只是 JS 对象
 var obj1 = {}; 
 
@@ -140,7 +140,7 @@ var str2='['
 
 在一个JS对象上实现了toJSON方法，那么调用 JSON.stringify去序列化这个JS对象时JSON.stringify会把这个对象的toJSON方法返回的值作为参数去进行序列化
 
-```
+```js
 var info={  
     "msg":"I Love You",
     "toJSON":function(){

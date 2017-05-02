@@ -4,7 +4,7 @@
 
 javascript所有对象都在`window`这个**顶层对象**之中。
 
-```
+```js
 var a = 1;
 
 window.a  // 1

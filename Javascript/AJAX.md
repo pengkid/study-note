@@ -10,7 +10,7 @@ AJAX（异步的javascript和xml）
 
 ### 新建XMLHttpRequest对象
 
-```
+```js
 //创建通信对象
 var request;
 
@@ -37,7 +37,7 @@ const options = {
 ### 新建服务器
 
 #### get请求
-```
+```js
 request.open('get', url [, boolean]);  //比喻：在地址栏输入地址
 request.send();  //提交请求，比喻：按了一下回车
 
@@ -48,7 +48,7 @@ request.send();  //提交请求，比喻：按了一下回车
 * `boolean` ： 是否异步请求，默认是 false
 
 #### post请求
-```
+```js
 xhr.open('post', url [, boolean]);
 xhr.setRequestHeader('content-type', 'application/x-www-form-urlencoded');  //申明发送的数据类型，post没有缓存问题，无需编码
 xhr.send('username=pengkid&age=18'); //请求参数写在send方法中
@@ -62,7 +62,7 @@ xhr.send('username=pengkid&age=18'); //请求参数写在send方法中
 ### 等待服务器返回内容
 
 #### 监听通信对象的状态码
-```
+```js
 request.onreadystatechange = function () {
     if (request.readyState == 4) {
         var status = request.status;
@@ -94,7 +94,7 @@ request.onreadystatechange = function () {
 
 ## Jquery 的 AJAX封装
 
-```
+```js
 $.ajax({
     url:'',
     type:'POST', //GET
