@@ -1,7 +1,5 @@
 ## 原型承继
 
-跟JAVA不一样，JS是采用原型承继的：构造函数根据自己的原型属性（prototype）来创造新的对象（object），而对于对象来说，它就承继于构造函数的原型属性（它的爸爸），这就叫原型承继。
-
 打个意思相近的比方，如果建筑是基于类的系统，则建筑师会先画出房子的蓝图，然后房子都按照该蓝图来建造。如果建筑是基于原型的，建筑师会先建一所房子，然后将房子都建成像这种摸样的。
 
 ## 面向对象编程
@@ -9,29 +7,29 @@
 ### 构造函数
 
 所谓"`构造函数`"，其实就是一个普通函数，但是内部使用了`this`变量。
-构造函数使用`new`生成实例对象，`this`变量会绑定在实例对象上。
+构造函数使用`new`生成实例对象，`this`变量会绑定在（指向）实例对象上。
 
 ```js
 function Cat(name,color){
-	//nameFn会是生成的实例对象的属性
-	this.nameFn=name;
+	this.nameFn=name;  //nameFn会是生成的实例对象的属性
 	this.colorFn=color;
 }
 
 var cat1 = new Cat('大毛','黑色');
-
-cat1.nameFn//大毛
+ 
+cat1.nameFn;  //大毛
 
 //constructor属性会指向构造函数
-cat1.constructor == Cat;//true
+cat1.constructor == Cat;   //true
 
 //验证一个实例对象的原型
-cat1 instanceof Cat;//true
+cat1 instanceof Cat;  //true
 ```
 
 ###  prototype属性
 
-每个构造函数的`prototype`属性指向一个对象，实例会继承所有的属性与方法。
+每个构造函数的`prototype`属性指向一个对象，对象实例会继承其所有的属性与方法。
+
 
 ```js
 Cat.prototype.say = function(){console.log("喵喵..")};
