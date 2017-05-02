@@ -10,6 +10,8 @@
    * [奇奇怪怪的定时器](/Javascript/奇奇怪怪的定时器.md)
   
    * [上帝视觉的原型承继](/Javascript/上帝视觉的原型承继.md)
+   
+   * [面向对象的JS](/Javascript/面向对象的JS.md)
   
    * [闭包之我见](/Javascript/闭包之我见.md)
   
