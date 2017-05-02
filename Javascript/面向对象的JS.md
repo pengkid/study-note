@@ -1,12 +1,8 @@
 ## 原型承继
 
-
-跟JAVA、C++不一样，JS是采用原型承继的：构造函数根据自己的原型属性（prototype）来创造新的对象（object），而对于对象来说，它就承继于构造函数的原型属性（它的爸爸），这就叫原型承继。
+跟JAVA不一样，JS是采用原型承继的：构造函数根据自己的原型属性（prototype）来创造新的对象（object），而对于对象来说，它就承继于构造函数的原型属性（它的爸爸），这就叫原型承继。
 
 打个意思相近的比方，如果建筑是基于类的系统，则建筑师会先画出房子的蓝图，然后房子都按照该蓝图来建造。如果建筑是基于原型的，建筑师会先建一所房子，然后将房子都建成像这种摸样的。
-
-由原型属性（对象）构成的一系列，或者叫做栈，就叫原型链。当访问一个对象的属性和方法的时候，除了会访问它自身外，还会访问它的原型链。原型链的最后总是 object.prototype = null 。
-
 
 ## 面向对象编程
 
@@ -17,12 +13,12 @@
 
 ```js
 function Cat(name,color){
-    //nameFn会是生成的实例对象的属性
-　　　　this.nameFn=name;
-　　　　this.colorFn=color;
-　　}
+	//nameFn会是生成的实例对象的属性
+	this.nameFn=name;
+	this.colorFn=color;
+}
 
-var cat1=new Cat('大毛','黑色');
+var cat1 = new Cat('大毛','黑色');
 
 cat1.nameFn//大毛
 
@@ -43,12 +39,15 @@ Cat.prototype.say = function(){console.log("喵喵..")};
 cat1.say();//喵喵..
 ```
 
-`hasOwnProperty()`
+* `hasOwnProperty()`
 
 用来判断某一个属性到底是本地属性，还是继承自`prototype`对象的属性。
 
-`in`
+* `in`
+
 判断某个实例是否含有某个属性，不管是不是本地属性。
+
+>由原型属性（对象）构成的一系列（栈），就叫原型链。当访问一个对象的属性和方法的时候，除了会访问它自身外，还会访问它的原型链。原型链的最后总是 object.prototype = null 。
 
 
 ## call与apply函数
