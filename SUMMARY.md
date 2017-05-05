@@ -45,7 +45,7 @@
 * [前端模块化](/前端模块化/README.md)
   * [模块化发展史](/前端模块化/模块化发展史.md)
   * [CommonJS](/前端模块化/CommonJS.md)
-* [Algorithms](/Algorithms/README.md)
+* [数据结构与算法](/Algorithms/README.md)
   * [数组](/Algorithms/数组.md)
   * [队列](/Algorithms/队列.md)
   * [栈](/Algorithms/栈.md)
