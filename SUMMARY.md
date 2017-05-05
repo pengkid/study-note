@@ -52,7 +52,6 @@
   * [链表](/Algorithms/链表.md)
   * [二叉树](/Algorithms/二叉树.md)
   * [排序算法](/Algorithms/排序算法.md)
-  * [leetcode大法](/Algorithms/leetcode大法.md)
 * [Git](/Git/README.md)
   * [常用命令](/Git/常用命令.md)
   * [奇奇怪怪的问题](/Git/奇奇怪怪的问题.md)
