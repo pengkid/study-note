@@ -14,6 +14,4 @@
    * [二叉树](/Algorithms/二叉树.md)
   
    * [排序算法](/Algorithms/排序算法.md)
-  
-   * [leetcode大法](/Algorithms/leetcode大法.md)
 
