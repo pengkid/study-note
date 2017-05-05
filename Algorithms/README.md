@@ -2,6 +2,8 @@
 
 
    * [数组](/Algorithms/数组.md)
+   
+   * [列表](/Algorithms/列表.md)
   
    * [队列](/Algorithms/队列.md)
   
