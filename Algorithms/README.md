@@ -10,8 +10,12 @@
    * [栈](/Algorithms/栈.md)
   
    * [链表](/Algorithms/链表.md)
-  
+   
+   * [散列](/Algorithms/散列.md)
+
    * [二叉树](/Algorithms/二叉树.md)
   
    * [排序算法](/Algorithms/排序算法.md)
+   
+   * [查找算法](/Algorithms/查找算法.md)
 
