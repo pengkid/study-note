@@ -1,3 +1,5 @@
+跟 HTML 很像，但又不是真正意义的 HTML 标签，那就是**模板**。此外，模板中还嵌套着代码。
+
 * ReactDOM.render()
 
 `ReactDOM.render` 是 `React` 的最基本方法，用于将虚拟元素（模板）转为 HTML 元素，并插入指定的 DOM 节点。
