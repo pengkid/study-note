@@ -47,6 +47,7 @@
   * [CommonJS](/前端模块化/CommonJS.md)
   * [AMD与CMD](/前端模块化/AMD与CMD.md)
 * [数据结构与算法](/Algorithms/README.md)
+  * [基础算法](/Algorithms/基础算法.md)
   * [数组](/Algorithms/数组.md)
   * [列表](/Algorithms/列表.md)
   * [队列](/Algorithms/队列.md)
