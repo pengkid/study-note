@@ -1,5 +1,6 @@
 ## 笔记目录
 
+   * [基础算法](/Algorithms/基础算法.md)
 
    * [数组](/Algorithms/数组.md)
 
