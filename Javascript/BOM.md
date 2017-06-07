@@ -2,7 +2,7 @@
 
 ## 概述
 
-javascript所有对象都在`window`这个**顶层对象**之中。
+javascript所有东西都在`window`这个**顶层（宿主）对象**之中。
 
 ```js
 var a = 1;
