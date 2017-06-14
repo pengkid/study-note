@@ -1,0 +1,45 @@
+{
+    "plugins": [
+        "prism",
+        "-highlight",
+        "anchors",
+        "sharing",
+        "toggle-chapters",
+        "splitter",
+        "search",
+        "github",
+        "theme-comscore"
+    ],
+    "pluginsConfig": {
+        "prism": {
+            "css": [
+                "prismjs/themes/prism-okaidia.css"
+              ]
+        },
+        "sharing": {
+            "all": [
+                "facebook",
+                "google",
+                "twitter",
+                "weibo"
+            ],
+            "facebook": false,
+            "google": false,
+            "twitter": false,
+            "weibo": false
+        },
+        "github": {
+            "url": "https://github.com/pengkid/study-note"
+        }
+    },
+    "links": {
+        "sidebar": {
+            "Learn More": "https://github.com/pengkid"
+        },
+        "gitbook": false
+    },
+    "title": "前端路上的鹏仔",
+    "author" : "pengkid",
+    "description": "这是关于前端知识的记录，从2017年2月1日开始至今，一直记录着我在前端学习方面的知识与问题。",
+    "language" : "zh-hans"
+}
