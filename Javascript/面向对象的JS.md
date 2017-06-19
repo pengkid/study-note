@@ -2,28 +2,25 @@
 
 打个意思相近的比方，如果建筑是基于类的系统，则建筑师会先画出房子的蓝图，然后房子都按照该蓝图来建造。如果建筑是基于原型的，建筑师会先建一所房子，然后将房子都建成像这种摸样的。
 
-## 面向对象编程
-
 ### 构造函数
 
-所谓"`构造函数`"，其实就是一个普通函数，但是内部使用了`this`变量。
+所谓`构造函数`，其实就是一个普通函数，但是内部使用了`this`变量。
 构造函数使用`new`生成实例对象，`this`变量会绑定在（指向）实例对象上。
 
 ```js
-function Cat(name,color){
-	this.nameFn=name;  //nameFn会是生成的实例对象的属性
-	this.colorFn=color;
+function People(name, sex){
+	this.name=name;  //name会是生成的实例对象的属性
+	this.sex=sex;
 }
 
-var cat1 = new Cat('大毛','黑色');
- 
-cat1.nameFn;  //大毛
+var pengkid = new People('鹏仔','男');
+pengkid.name === ‘鹏仔’;  // true
 
-//constructor属性会指向构造函数
-cat1.constructor == Cat;   //true
+//实例对象的constructor属性会指向它的构造函数
+pengkid.constructor === 'People';   //true
 
 //验证一个实例对象的原型
-cat1 instanceof Cat;  //true
+pengkid instanceof People;  //true
 ```
 
 ###  prototype属性
@@ -32,9 +29,9 @@ cat1 instanceof Cat;  //true
 
 
 ```js
-Cat.prototype.say = function(){console.log("喵喵..")};
+People.prototype.say = function(){console.log("我的名字是"+this.name)};
 
-cat1.say();//喵喵..
+pengkid.say(); // 我的名字是鹏仔
 ```
 
 * `hasOwnProperty()`
@@ -59,13 +56,10 @@ obj.apply(thisObj, [arg1, arg2, ...]);
 
 也可以当成，把`obj`上的方法，放到`thisObj`上执行。
 
->bind()与call()相似，但不会立即执行。
->>参数是null或者undefined，等于将this绑定到全局对象。
+> 参数是null或者undefined，等于将this绑定到全局对象。
 
->[参考1](http://www.ruanyifeng.com/blog/2010/05/object-oriented_javascript_encapsulation.html)
->[参考2](http://www.ruanyifeng.com/blog/2011/06/designing_ideas_of_inheritance_mechanism_in_javascript.html)
 
-### bind()
+## 绑定函数 bind()
 
 `bind()`方法会创建并返回一个新函数，称为绑定函数。
 
@@ -106,10 +100,11 @@ var list3 = leadingThirtysevenList(1, 2, 3); // [37, 1, 2, 3]
 
 ## this的用法
 
-随着`this`的使用场合，`this`的值会发生变化。
-总共有四种方式：
+this 指的是它所在的方法被调用时，调用这个方法的对象。
 
- - 纯粹的函数调用
+随着`this`的使用场合，`this`的值会发生变化。总共有五种场合：
+
+* 纯粹的函数调用
 
 函数体内调用`this`，代表全局对象`Global`。
 
@@ -122,7 +117,7 @@ test();
 alert(x); //0
 ```
 
- - 作为对象的方法调用
+* 作为对象的方法调用
 
 函数还可以作为某个对象的方法调用，这时this就指这个上级对象。
 
@@ -136,7 +131,7 @@ var obj={
 obj.fn();//10
 ```
 
- - 作为构造函数调用
+* 作为构造函数调用
 
 所谓构造函数，就是通过这个函数生成一个新对象（`object`）。这时，`this`就指这个新对象。
 
@@ -152,22 +147,55 @@ console.log(x);//10
 console.log(o.x);//5
 ```
 
- - apply调用
+* apply和call调用
 
 `apply()`是函数对象的一个方法，用来改变函数的调用对象。`this`指的就是这个参数。
 
 ```js
-	var x = 0;
-　　function test(){
-　　　　alert(this.x);
-　　}
-　　var o={};
-　　o.x = 1;
-　　o.m = test;
-　　o.m.apply(); //0，函数调用时的变量环境是定义时的环境
-　　o.m.apply(o); //1，this代表对象o
+var x = 0;
+function test(){
+	alert(this.x);
+}
+
+var o={};
+o.x = 1;
+o.m = test;
+o.m.apply();  // 0，函数调用时的变量环境是定义时的环境
+o.m.apply(o); // 1，this代表对象o
 ```
 `apply()`的参数为空时，默认调用全局对象。因此，这时的运行结果为`0`，证明`this`指的是全局对象。
 
 
->[参考](http://www.ruanyifeng.com/blog/2010/04/using_this_keyword_in_javascript.html)
+* 箭头函数中调用
+
+ES6中新增的箭头函数，完美修复了 this 的指向，即箭头函数中的 this 永远指向它的词法作用域（this的外层调用者）。
+
+```js
+var x  = 0;
+var o1 = {
+	x: 1,
+	o2: {
+		test: () => {
+			console.log(this.x);
+		}
+	}
+}
+
+// ES5语法，输出 0
+o1.o2.test();
+
+
+// ES6语法，输出 1
+o1.o2.test();
+```
+
+
+
+
+
+
+
+
+
+
+
