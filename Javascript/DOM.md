@@ -279,19 +279,19 @@ eleNode.getBoundingClientRect()：返回当前元素的一个坐标对象
 
 ### 查询滚动元素的几何尺寸
 
-* ele.scrollHeight
+* `ele.scrollHeight`
 
 获取滚动元素的滚动区域总高度（不含边框）
 
-* ele.scrollWidth
+* `ele.scrollWidth`
 
 获取滚动元素的滚动区域总宽度（不含边框）
 
-* ele.scrollLeft
+* `ele.scrollLeft`
 
 获取滚动条被隐藏的区域大小，滚动条左边框距离最左方区域
 
-* ele.scrollTop
+* `ele.scrollTop`
 
 获取滚动条被隐藏的区域大小，滚动条上边框距离最上方区域
 
@@ -347,15 +347,24 @@ window.screen.availWidth      //屏幕可用工作区宽度
 ## 关于 document 鲜为人知的属性和方法
 
 * `document.documentElement`：返回 html 根元素，即整个文档
+
 * `document.head`：返回 head 头标签
 * `document.body`：返回 body 体标签
+
 * `document.domain`：查看当前文档的所在域名
+
 * `document.location`：同window对象的location属性，引用location对象
+
 * `document.cookie`：操作浏览器的cookie
+
 * `document.referrer`：表示文档访问来源，如果无法获取来源或用户直接键入网址，则返回一个空字符串
+
 * `document.URL`：获取文档的URL，该属性值与 location.href 的初始值相同
+
 * `document.readyState`：获取文档的状态，loading：加载HTML代码阶段（尚未完成解析），interactive：加载外部资源阶段时，complete：DOM节点树加载完成时
+
 * `document.getSelection()`：返回一个Selection对象，该对象描述了当前用户选取的一系列对象 
+
 * `document.getSelection().focusNode.data`：获取当前用户选中的内容
 
 
