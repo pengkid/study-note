@@ -41,47 +41,67 @@ DOM树：当浏览器加载文档的时候，浏览器会根据文档结构，�
 
 Document对象、Element对象和Text对象等的实例对象都承继于Node对象。
 	
-	访问父节点：
-		ele.parentNode（父节点永远是元素节点）	
+* 访问父节点
+
+	* ele.parentNode（父节点永远是元素节点）
+
+
+* 访问子节点
+	* ele.childNodes（返回一个类数组对象）
 	
-	访问子节点：
-		ele.childNodes（返回一个类数组对象）
-		ele.firstChild（第一个子节点），ele.lastChild（最后子节点）
+	* ele.firstChild（第一个子节点）
 	
-	访问兄弟节点：
-		ele.nextSibling（后一个兄弟）
-		ele.previousSibling（前一个兄弟）
+	* ele.lastChild（最后子节点）
+
+* 访问兄弟节点
+
+	* ele.nextSibling（后一个兄弟）
 	
-	访问节点文本：
-		ele.textContent（除了返回该节点的文本内容，还会一并返回后代的所有文本）
+	* ele.previousSibling（前一个兄弟）
 	
-	访问节点类型：
-		ele.nodeType（元素节点为1，属性节点为2，文本节点为3，注释节点为8，文档节点为9，文档类型节点为10）
+* 访问节点文本
 	
-	访问节点名称：
-		ele.nodeName（元素节点返回大写HTML，属性节点返回属性名，文本节点返回#text）
+	* ele.textContent（除了返回该节点的文本内容，还会一并返回后代的所有文本）
+
+
+* 访问节点类型
 	
-	访问节点值：
-		ele.nodeValue（只有文本节点和注释节点能返回自身文本字符串，其他节点都返回 null ）
+	* ele.nodeType（元素节点为1，属性节点为2，文本节点为3，注释节点为8，文档节点为9，文档类型节点为10）
+
+
+* 访问节点名称
+
+	* ele.nodeName（元素节点返回大写HTML，属性节点返回属性名，文本节点返回#text）
+
+
+* 访问节点值
+
+	* ele.nodeValue（只有文本节点和注释节点能返回自身文本字符串，其他节点都返回 null ）
 
 ### 作为元素树的遍历
 
 JavaScript提供了另外一组API，它将文档看做是元素树，忽略部分文档：Text和Comment节点。
 
-	访问子元素节点：
-		ele.children（类似ele.childNodes，返回一个类数组对象，但只包含元素子节点）
-		ele.firstElementChild（返回第一个元素子节点）
-		ele.lastElementChild（返回最后一个元素子节点）
+* 访问子元素节点
+	* ele.children（类似ele.childNodes，返回一个类数组对象，但只包含元素子节点）
 	
-	访问兄弟元素节点：
-		ele.nextElementSibling（返回后一个元素兄弟）
-		ele.previousElementSibling（返回前一个元素兄弟）
+	* ele.firstElementChild（返回第一个元素子节点）
 	
-	访问定位父节点：
-		ele.offsetParent（返回离元素最近，且有定位机制的父元素）
+	* ele.lastElementChild（返回最后一个元素子节点）
+
+* 访问兄弟元素节点
+	* ele.nextElementSibling（返回后一个元素兄弟）
 	
-	访问子元素节点数组长度：
-		ele.childElementCount（子元素的数量，返回的值和children.length值相等）
+	* ele.previousElementSibling（返回前一个元素兄弟）
+	
+* 访问定位父节点：
+
+	* ele.offsetParent（返回离元素最近，且有定位机制的父元素）
+
+
+* 访问子元素节点数组长度：
+
+	* ele.childElementCount（子元素的数量，返回的值和children.length值相等）
 
 
 ## NodeList对象和HTMLCollection对象
@@ -93,8 +113,10 @@ NodeList的实例对象是一个类数组对象，它的成员是节点对象。
 NodeList接口实例对象提供length属性和数字索引，因此可以像数组那样，使用数字索引取出每个节点。但是它本身并不是数组，不能使用pop或push之类数组特有的方法。
 	
 比如 ele.childNodes、document.querySelectorAll()返回的都是NodeList的实例对象：
-		
-	document.childNodes instanceof NodeList   //true
+
+```js		
+document.childNodes instanceof NodeList   //true
+```
 
 ### HTMLCollection
 
@@ -102,7 +124,9 @@ HTMLCollection实例对象与NodeList实例对象类似，也是节点对象的�
 
 比如 ele.children、document.forms返回的都是HMTLCollection的实例对象：
 
-	document.forms instanceof HTMLCollection  //true
+```js
+document.forms instanceof HTMLCollection  //true
+```
 
 在document对象中，有一些快捷属性来访问元素节点，比如：document.images、document.forms和document.links等属性指向类数组的 img、form 和 a 元素集合，这些属性都是返回HTMLCollection实例对象。
 	
@@ -124,50 +148,60 @@ HTMLCollection实例对象与NodeList实例对象类似，也是节点对象的�
 
 
 ## DOM元素内容大揭秘
-	ele.innerHTML：返回该元素的元素内容（可修改）
-	ele.outerHTML：返回该元素所有HTML代码，包括自身和所有子元素（可修改）
-	ele.insertAdjacentHTML()：将任意的HTML标记字符插入到指定的元素“相邻”的位置。
-							  传入两个参数：标记是该方法的第二个参数，并且“相邻”的精确含义依赖于第一个参数
-							  第一个参数有以下值之一："beforebegin"、"afterbegin"、"beforeend"、"afterend"
+
+* `ele.innerHTML`：返回该元素的元素内容（可修改）
+
+* `ele.outerHTML`：返回该元素所有HTML代码，包括自身和所有子元素（可修改）
+
+* `ele.insertAdjacentHTML(pos, newNode)`
+
+	* 将任意的HTML标记字符插入到指定的元素“相邻”的位置。
 	
-	* 上述属性和方法只存在于元素节点，其他类型的节点都是 undefined
+	* pos参数：“相邻”的精确含义依赖于第一个参数，第一个参数有以下值一："beforebegin"、"afterbegin"、"beforeend"、"afterend"
+	
+**上述属性和方法只存在于元素节点，对于其他类型的节点都是 undefined**
 
-	ele.textContent：将指定元素的所有后代Text节点简单的串联在一起并返回
-
-	* 在IE中，使用innerText替代textContent。
+* ele.textContent：将指定元素的所有后代Text节点简单的串联在一起并返回。（在IE中，使用innerText替代textContent）
 
 
 ## DOM节点增改删查
 
 ### 创建节点（增）
 	
-	document.createDoucmentFragment()  //创建一个文档片段节点
-	document.createComment('comment')  //创建一个注释节点，参数为注释值
-	document.createElement('ele')      //创建元素节点，参数为标签名
-	document.createAttribute('att')    //创建属性节点，参数为属性名
-	document.createTextNode('text')    //创建文本节点，参数为文本值
-	ele.cloneNode()    //用来复制已存在的节点。每个节点有该方法，返回该节点的一个全新副本，传递一个可选的布尔值为参数，如果参数true则同时克隆该节点的所有后代节点，否则只克隆该节点，默认为false
+* `document.createDoucmentFragment()`: 创建一个文档片段节点
+
+* `document.createComment('comment')`: 创建一个注释节点，参数为注释值
+
+* `document.createElement('ele')`: 创建元素节点，参数为标签名
+
+* `document.createAttribute('att')`: 创建属性节点，参数为属性名
+
+* `document.createTextNode('text')`: 创建文本节点，参数为文本值
+
+* `ele.cloneNode()`: 用来复制已存在的节点。每个节点有该方法，返回该节点的一个全新副本，传递一个可选的布尔值为参数，如果参数true则同时克隆该节点的所有后代节点，否则只克隆该节点，默认为false
 
 ### 改造结构（改）
 
-	parentNode.appendChild(newNode)   //接受一个节点对象为参数，将它作为最后一个子节点，插入当前节点
-	parentNode.insertBefore(newNode,oldNode)  //在oldNode节点前，插入一个newNode节点
-	inserAfter(parentNode,newNode,oldNode)：
-		function inserAfter(parentNode,newNode,oldNode){
-			if(oldNode.nextSibling){
-				parentNode.insertBefore(newNode,oldNode.nextSibling)
-			}
-			else{
-				parentNode.appendChild(newNode)
-			}
-		}
+* `parentNode.appendChild(newNode)`: 接受一个节点对象为参数，将它作为最后一个子节点，插入当前节点
 
-	*  如果要插入的节点是已存在文档中，那个节点将自动从它当前的位置移除并在新的位置重新插入
+* `parentNode.insertBefore(newNode,oldNode)`: 在oldNode节点前，插入一个newNode节点
+
+* `inserAfter(parentNode,newNode,oldNode)`
+
+```js
+function inserAfter(parentNode,newNode,oldNode){
+	if(oldNode.nextSibling) parentNode.insertBefore(newNode,oldNode.nextSibling)
+	else parentNode.appendChild(newNode)
+}
+
+// 如果要插入的节点是已存在文档中，那个节点将自动从它当前的位置移除并在新的位置重新插入
+```
 
 ### 删除节点（删）
 		
-	ele.parentNode.removeChild(ele)                 //删除父节点的一个子节点
-	oldEle.parentNode.replaceChild(newEle, oldEle)  //把父节点的一个子节点替换成另外一个节点
+* `ele.parentNode.removeChild(ele)`: 删除父节点的一个子节点
+
+* `oldEle.parentNode.replaceChild(newEle, oldEle)`: 把父节点的一个子节点替换成另外一个节点
 
 ### 查找节点（查）
 
@@ -189,74 +223,125 @@ HTMLCollection实例对象与NodeList实例对象类似，也是节点对象的�
 
 ### 基本概念
 
-&nbsp;&nbsp;&nbsp;&nbsp; 文档：即HTML文档，document。
+文档：即HTML文档，document。
 
-&nbsp;&nbsp;&nbsp;&nbsp; 视口：浏览器用来显示文档的区域，除去标签页，滚动条，乱七八糟的，剩下就是视口。
+视口：浏览器用来显示文档的区域，除去标签页，滚动条，乱七八糟的，剩下就是视口。
 
-&nbsp;&nbsp;&nbsp;&nbsp; 坐标：元素的X和Y坐标元素自身的左上角是相对于视口或者文档的左上角的距离。
+坐标：元素的X和Y坐标元素自身的左上角是相对于视口或者文档的左上角的距离。
 
 ### 查询元素的几何尺寸
 
-	eleNode.getBoundingClientRect()：返回当前元素的一个坐标对象
-	{
-		top：元素顶部相对于视口的纵坐标，与y属性相等 
-		bottom：元素底部相对于视口的纵坐标 （等于top加上height）
-		left：元素左上角相对于视口的横坐标，与x属性相等 
-		right：元素右边界相对于视口的横坐标（等于left加上width）
-		width：元素实际宽度（等于right减去left） 
-		height：元素实际高度（等于y加上height）
-	}
+eleNode.getBoundingClientRect()：返回当前元素的一个坐标对象
+```js
+{
+	top,	//元素顶部相对于视口的纵坐标，与y属性相等 
+	bottom,	//元素底部相对于视口的纵坐标（等于top加上height）
+	left,	//元素左上角相对于视口的横坐标，与x属性相等 
+	right,	//元素右边界相对于视口的横坐标（等于left加上width）
+	width,	//元素实际宽度（等于right减去left)
+	height	//元素实际高度（等于y加上height）
+}
+```
 
-具体查询元素的具体几何尺寸
+### 具体查询元素的具体几何尺寸
 
-	clientHeight  //获取当前元素的可视区域高度，即内容区的高度+padding-top+padding-bottom
-	clientWidth   //获取当前元素的可视区域宽度，即内容区的宽度+padding-left+padding-right
+* `ele.clientHeight`
 
-	offsetHeight  //获取当前元素的实际高度，即内容区的高度+padding-top+padding-bottom+border-top+border-bottom
-	offsetWidth   //获取当前元素的实际宽度，即内容区的宽度+padding-left+padding-right+border-left+border-right
+获取当前元素的可视区域高度，即内容区的高度+padding-top+padding-bottom
+
+* `ele.clientWidth`
+
+获取当前元素的可视区域宽度，即内容区的宽度+padding-left+padding-right
+
+* `ele.offsetHeight`
+
+获取当前元素的实际高度，即内容区的高度+padding-top+padding-bottom+border-top+border-bottom
+
+* `ele.offsetWidth`
+
+获取当前元素的实际宽度，即内容区的宽度+padding-left+padding-right+border-left+border-right
 	
-	clientLeft    //获取当前元素的左边框，右边框 = (offsetWidth - clientWidth) - clientLeft
-	clientTop     //获取当前元素的上边框，底边框 = (offsetHeight - clientHeight) - clientTop
-	offsetLeft    //获取当前元素相对于父元素的位置，元素左边框到父元素左边框，绝对定位的 left + margin-left
-	offsetTop     //获取当前元素相对于父元素的位置，元素上边框到父元素上边框，绝对定位的 top + margin-top
+* `ele.clientLeft`
+
+获取当前元素的左边框，右边框 = (offsetWidth - clientWidth) - clientLeft
+
+* `ele.clientTop`
+
+获取当前元素的上边框，底边框 = (offsetHeight - clientHeight) - clientTop
+
+* `ele.offsetLeft`
+
+获取当前元素相对于父元素的位置，元素左边框到父元素左边框，绝对定位的 left + margin-left
+
+* `ele.offsetTop`
+
+获取当前元素相对于父元素的位置，元素上边框到父元素上边框，绝对定位的 top + margin-top
 
 ### 查询滚动元素的几何尺寸
 
-	scrollHeight  //获取滚动元素的滚动区域总高度（不含边框）
-	scrollWidth   //获取滚动元素的滚动区域总宽度（不含边框）
+* ele.scrollHeight
 
-	scrollLeft    //获取滚动条被隐藏的区域大小，滚动条左边框距离最左方区域
-	scrollTop     //获取滚动条被隐藏的区域大小，滚动条上边框距离最上方区域
-	
+获取滚动元素的滚动区域总高度（不含边框）
+
+* ele.scrollWidth
+
+获取滚动元素的滚动区域总宽度（不含边框）
+
+* ele.scrollLeft
+
+获取滚动条被隐藏的区域大小，滚动条左边框距离最左方区域
+
+* ele.scrollTop
+
+获取滚动条被隐藏的区域大小，滚动条上边框距离最上方区域
+
+
 要让滚动条滚动到最初始的位置，那么可以写一个函数：
-	
-	function scrollStart (element) {
-		   if ( element.scrollTop != 0 ) {
-		       element.scrollTop = 0;
-		   }
+
+```js	
+function scrollStart (ele) {
+	if ( ele.scrollTop != 0 ) {
+		ele.scrollTop = 0;
 	}
+}
+```
 
 如果要查看整张网页的水平的和垂直的滚动距离，要从 document.body元素上读取，这两个属性都可读写，设置该属性的值，会导致浏览器将指定元素自动滚动到相应的位置：
 		
-	document.body.scrollLeft    //网页可见区域宽
-	document.body.scrollTop	 //网页可见区域宽
-	
+```js
+document.body.scrollLeft    //网页可见区域宽
+
+document.body.scrollTop	 //网页可见区域宽
+
+```
 ### 获取页面大小大全
 
-	document.body.clientWidth	//网页可见区域宽
-	document.body.clientHeight   //网页可见区域高
-	document.body.offsetWidth(包括边线的宽)	//网页可见区域宽
-	document.body.offsetHeight(包括边线的宽)   //网页可见区域高
-	document.body.scrollWidth	 //网页正文全文宽
-	document.body.scrollHeight	//网页正文全文高
-	document.body.scrollTop       //网页被卷去的高，IE7无效
-	document.body.scrollLeft      //网页被卷去的左，IE7无效
+```js
+document.body.clientWidth	//网页可见区域宽
 
-	window.screen.height          //屏幕分辨率的高
-	window.screen.width           //屏幕分辨率的宽
-	window.screen.availHeight     //屏幕可用工作区高度
-	window.screen.availWidth      //屏幕可用工作区宽度
+document.body.clientHeight   //网页可见区域高
 
+document.body.offsetWidth(包括边线的宽)	//网页可见区域宽
+
+document.body.offsetHeight(包括边线的宽)   //网页可见区域高
+
+document.body.scrollWidth	 //网页正文全文宽
+
+document.body.scrollHeight	//网页正文全文高
+
+document.body.scrollTop       //网页被卷去的高，IE7无效
+
+document.body.scrollLeft      //网页被卷去的左，IE7无效
+
+
+window.screen.height          //屏幕分辨率的高
+
+window.screen.width           //屏幕分辨率的宽
+
+window.screen.availHeight     //屏幕可用工作区高度
+
+window.screen.availWidth      //屏幕可用工作区宽度
+```
 
 
 ## 关于 document 鲜为人知的属性和方法
