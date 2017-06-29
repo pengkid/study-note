@@ -52,6 +52,8 @@
   * [模块化发展史](/前端模块化/模块化发展史.md)
   * [CommonJS](/前端模块化/CommonJS.md)
   * [AMD与CMD](/前端模块化/AMD与CMD.md)
+  * [ES6模块机制](/前端模块化/ES6模块机制.md)
+  * [模块打包工具webpack](/前端模块化/模块化打包工具webpack.md)
 * [数据结构与算法](/Algorithms/README.md)
   * [基础算法](/Algorithms/基础算法.md)
   * [数组](/Algorithms/数组.md)
