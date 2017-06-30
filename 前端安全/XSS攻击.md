@@ -26,7 +26,7 @@ XSS是最常见的一种web攻击方式，它指的是恶意用户把代码注�
 
 ```php
 <?php
-    $username="<script>alert('侯医生');</script>";
+    $username="<script>alert('鹏仔');</script>";
 ?>
 ```
 
@@ -126,7 +126,7 @@ img标签，在加载图片失败的时候，会调用该元素上的onerror事�
 
 ```php
 <?php
-    $username="<script>alert('侯医生');</script>";
+    $username="<script>alert('鹏仔');</script>";
     $imgsrc="\" onerror=\"javascript:alert('鹏仔');\"";
 ?>
 <!DOCYTPE HTML>
