@@ -68,7 +68,23 @@ $.ajax({
 </html>
 ```
 
+虽然，成功防止了恶意脚本的执行，但是标签还是会显示出来，影响用户体验。
+
 > 在 Node.js 中，可以用 htmlEncode() 。
+```js
+function htmlEncode(str) {
+    var s = "";
+    if (str.length == 0) return "";  
+    s = str.replace(/&/g, "&gt;");
+    s = s.replace(/</g, "&lt;");
+    s = s.replace(/>/g, "&gt;");
+    s = s.replace(/ /g, "&nbsp;");
+    s = s.replace(/\'/g, "&#39;");
+    s = s.replace(/\"/g, "&quot;");
+    s = s.replace(/\n/g, "<br>");
+    return s;
+}
+```
 
 ## 升级版XSS
 
