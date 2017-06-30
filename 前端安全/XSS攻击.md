@@ -44,6 +44,37 @@ $.ajax({
 
 ## 防范
 
+最简单的解决方法，就是在前端将输出数据进行转义。
+
+比如，上述的XSS攻击的本质，就是因为浏览器遇到了`<script>`标签，然后才会执行其中的脚本。
+
+因此，我们只需要对`<script>`标签进行转义，则浏览器就不会执行其中的恶意脚本。
+
+```php
+<?php
+    $username="<script>alert('鹏仔');</script>";
+?>
+<!DOCYTPE HTML>
+<html>
+    <head>
+        <meta charset="utf-8" />
+    </head>
+    <body>
+        <!--我们将输出的后端变量，转义之后再输出，则可以避免被注入代码-->
+        <div>
+            用户名：<?php echo htmlentities($username);?>
+        </div>
+    </body>
+</html>
+```
+
+> 在 Node.js 中，可以用 htmlEncode() 。
+
+## 升级版XSS
+
+
+
+## 升级版防范策略
 
 
 
