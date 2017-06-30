@@ -108,7 +108,7 @@ function htmlEncode(str) {
     </head>
     <body>
         <div>
-            用户名：<?php echo htmlentities($username);?>
+            用户名：<?php echo htmlentities($username); ?>
         </div>
         <div>版权所有：<span id="username_info"></span></div>
         <script>
@@ -122,7 +122,32 @@ function htmlEncode(str) {
 
 ### image标签的利用
 
+img标签，在加载图片失败的时候，会调用该元素上的onerror事件。黑客正可以利用这种方式来进行攻击。
 
+```php
+<?php
+    $username="<script>alert('侯医生');</script>";
+    $imgsrc="\" onerror=\"javascript:alert('鹏仔');\"";
+?>
+<!DOCYTPE HTML>
+<html>
+    <head>
+        <meta charset="utf-8" />
+    </head>
+    <body>
+        <div>
+            用户名：<?php echo htmlentities($username);?>
+        </div>
+        <div>
+            这个是图片：<img src="<?php echo $imgsrc;?>" />
+        </div>
+    </body>
+</html>
+```
+
+此时的源码已经变为--src为空，但是onerror的时候，执行注入代码。
+
+### 组合攻击
 
 
 ## 升级版防范策略
