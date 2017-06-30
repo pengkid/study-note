@@ -92,7 +92,9 @@ function htmlEncode(str) {
 
 通常情况下，直接给innerHTML添加一段js脚本，是无法执行的。
 
-但是，jQuery中的`append()`方法却可以实现（这涉及到jQuery源码）。
+但是，jQuery中的`append()`方法却可以实现。这是因为，`append()`会把要添加的内容先用`eval()`执行一遍。
+
+而且，由于`append()`底层是通过innerHTML实现的，而innerHTML会把要添加的内容中的unicode码转化为字符实体。二者综合就能产生奇妙的效果了：
 
 ```php
 <?php
