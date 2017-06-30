@@ -44,7 +44,7 @@ $.ajax({
 
 ## 防范
 
-最简单的解决方法，就是在前端将输出数据进行转义。
+最简单的解决方法，就是将输出数据进行转义。
 
 比如，上述的XSS攻击的本质，就是因为浏览器遇到了`<script>`标签，然后才会执行其中的脚本。
 
@@ -87,6 +87,39 @@ function htmlEncode(str) {
 ```
 
 ## 升级版XSS
+
+### apend的利用
+
+通常情况下，直接给innerHTML添加一段js脚本，是无法执行的。
+
+但是，jQuery中的`append()`方法却可以实现（这涉及到jQuery源码）。
+
+```php
+<?php
+    $username="\u003cscript\u003ealert('ok');";
+?>
+<!DOCYTPE HTML>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <script src="https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/js/lib/jquery-1.10.2_d88366fd.js"></script>
+    </head>
+    <body>
+        <div>
+            用户名：<?php echo htmlentities($username);?>
+        </div>
+        <div>版权所有：<span id="username_info"></span></div>
+        <script>
+            $('#username_info').append("<?php echo htmlentities($username); ?>");
+        </script>
+    </body>
+</html>
+```
+
+虽然，我们对输出的数据进行了转义，但是转义函数却无法识别经过伪装的`<script>`标签，最终js脚本还是会执行。
+
+### image标签的利用
+
 
 
 

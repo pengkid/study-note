@@ -22,7 +22,7 @@ DOM树：当浏览器加载文档的时候，浏览器会根据文档结构，�
 
 * 文档片段节点(DOCUMENT_FRAGMENT_NODE)：代表文档的片段
 
->DocumentFragment是一种特殊的Node，它可以作为其他节点的一个临时容器，使得一组节点被当做一个节点看待。其次，它独立的而不是文档的一部分，所以它的parentNode总是为null，但类似ElementNode，它可以有任意多的子节点，也可以使用appendChild()等方法。
+>DocumentFragment是一种特殊的Node，它可以作为其他节点的一个临时容器，使得一组节点被当做一个节点看待。其次，它是独立的而不属于文档的一部分，所以它的parentNode总是为null，但类似ElementNode，它可以有任意多的子节点，也可以使用appendChild()等方法。
 
 
 ## DOM节点遍历全攻略
