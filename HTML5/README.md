@@ -7,4 +7,6 @@
  
  * [storage API](/HTML5/storage.md)
  
+ * [touch API](/HTML5/touch.md)
+ 
  * [canvas API](/HTML5/canvas.md)
