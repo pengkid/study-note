@@ -16,4 +16,4 @@
 
 sessionStorage会在关闭浏览器后删除数据，在chrome51版本下，关闭同一域名下的所有页面也会删除数据。
 
-localStorage是一个持久化的存储，它并不局限于会话。
+localStorage是一个持久化的存储，它并不局限于会话（最大支持10M）。
